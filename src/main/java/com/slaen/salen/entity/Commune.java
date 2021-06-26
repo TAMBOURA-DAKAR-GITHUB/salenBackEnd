@@ -21,4 +21,53 @@ public class Commune implements Serializable {
     @OneToMany(mappedBy = "commune")
     private Collection<Mairie> mairies;
 
+    public Commune() {
+    }
+
+    public Commune(String libelleCommune, Cercle cercle) {
+        this.libelleCommune = libelleCommune;
+        this.cercle = cercle;
+    }
+
+    public long getIdCommune() {
+        return idCommune;
+    }
+
+    public void setIdCommune(long idCommune) {
+        this.idCommune = idCommune;
+    }
+
+    public String getLibelleCommune() {
+        return libelleCommune;
+    }
+
+    public void setLibelleCommune(String libelleCommune) {
+        this.libelleCommune = libelleCommune;
+    }
+
+    public Cercle getCercle() {
+        return cercle;
+    }
+
+    public void setCercle(Cercle cercle) {
+        this.cercle = cercle;
+    }
+
+    public Collection<Mairie> getMairies() {
+        return mairies;
+    }
+
+    public void setMairies(Collection<Mairie> mairies) {
+        this.mairies = mairies;
+    }
+
+    @Override
+    public String toString() {
+        return "Commune{" +
+                "idCommune=" + idCommune +
+                ", libelleCommune='" + libelleCommune + '\'' +
+                ", cercle=" + cercle +
+                ", mairies=" + mairies +
+                '}';
+    }
 }

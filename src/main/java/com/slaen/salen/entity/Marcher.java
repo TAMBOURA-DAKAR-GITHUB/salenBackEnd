@@ -18,4 +18,53 @@ public class Marcher implements Serializable {
     @OneToMany(mappedBy = "marcher")
     private Collection<Place> places;
 
+    public Marcher() {
+    }
+
+    public Marcher(String libelleMarcher, Mairie mairie) {
+        this.libelleMarcher = libelleMarcher;
+        this.mairie = mairie;
+    }
+
+    public long getIdMarcher() {
+        return idMarcher;
+    }
+
+    public void setIdMarcher(long idMarcher) {
+        this.idMarcher = idMarcher;
+    }
+
+    public String getLibelleMarcher() {
+        return libelleMarcher;
+    }
+
+    public void setLibelleMarcher(String libelleMarcher) {
+        this.libelleMarcher = libelleMarcher;
+    }
+
+    public Mairie getMairie() {
+        return mairie;
+    }
+
+    public void setMairie(Mairie mairie) {
+        this.mairie = mairie;
+    }
+
+    public Collection<Place> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(Collection<Place> places) {
+        this.places = places;
+    }
+
+    @Override
+    public String toString() {
+        return "Marcher{" +
+                "idMarcher=" + idMarcher +
+                ", libelleMarcher='" + libelleMarcher + '\'' +
+                ", mairie=" + mairie +
+                ", places=" + places +
+                '}';
+    }
 }

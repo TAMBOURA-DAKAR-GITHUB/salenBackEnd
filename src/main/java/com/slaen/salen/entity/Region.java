@@ -18,6 +18,43 @@ public class Region implements Serializable {
     @OneToMany(mappedBy = "region")
     private Collection<Cercle> cercles;
 
+    public Region() {
+    }
 
+    public Region(String libelleRegion) {
+        this.libelleRegion = libelleRegion;
+    }
 
+    public long getIdRegion() {
+        return idRegion;
+    }
+
+    public void setIdRegion(long idRegion) {
+        this.idRegion = idRegion;
+    }
+
+    public String getLibelleRegion() {
+        return libelleRegion;
+    }
+
+    public void setLibelleRegion(String libelleRegion) {
+        this.libelleRegion = libelleRegion;
+    }
+
+    public Collection<Cercle> getCercles() {
+        return cercles;
+    }
+
+    public void setCercles(Collection<Cercle> cercles) {
+        this.cercles = cercles;
+    }
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "idRegion=" + idRegion +
+                ", libelleRegion='" + libelleRegion + '\'' +
+                ", cercles=" + cercles +
+                '}';
+    }
 }

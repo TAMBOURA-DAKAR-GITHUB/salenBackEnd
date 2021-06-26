@@ -18,4 +18,54 @@ public class AffecterPlaceUtilisateur implements Serializable {
     @ManyToOne
     private Utilisateur utilisateur;
 
+    public AffecterPlaceUtilisateur() {
+    }
+
+    public AffecterPlaceUtilisateur(Date dateAffecterPlaceUtilisateur, Place place, Utilisateur utilisateur) {
+        this.dateAffecterPlaceUtilisateur = dateAffecterPlaceUtilisateur;
+        this.place = place;
+        this.utilisateur = utilisateur;
+    }
+
+    public long getIdAffecterPlaceUtilisateur() {
+        return idAffecterPlaceUtilisateur;
+    }
+
+    public void setIdAffecterPlaceUtilisateur(long idAffecterPlaceUtilisateur) {
+        this.idAffecterPlaceUtilisateur = idAffecterPlaceUtilisateur;
+    }
+
+    public Date getDateAffecterPlaceUtilisateur() {
+        return dateAffecterPlaceUtilisateur;
+    }
+
+    public void setDateAffecterPlaceUtilisateur(Date dateAffecterPlaceUtilisateur) {
+        this.dateAffecterPlaceUtilisateur = dateAffecterPlaceUtilisateur;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    @Override
+    public String toString() {
+        return "AffecterPlaceUtilisateur{" +
+                "idAffecterPlaceUtilisateur=" + idAffecterPlaceUtilisateur +
+                ", dateAffecterPlaceUtilisateur=" + dateAffecterPlaceUtilisateur +
+                ", place=" + place +
+                ", utilisateur=" + utilisateur +
+                '}';
+    }
 }
