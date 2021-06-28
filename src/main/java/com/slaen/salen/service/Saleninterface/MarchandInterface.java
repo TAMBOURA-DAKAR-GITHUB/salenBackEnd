@@ -11,6 +11,6 @@ public interface MarchandInterface {
     public Marchand addMarchand(Marchand marchand);
     public List<Marchand> listeMarchand();
     public Marchand listeById(long id);
-    public Marchand UpdateMarcher(long id , Marchand marchand);
+    public Marchand UpdateMarcher(Marchand marchand);
     public void deleteMarchand(long id);
 }

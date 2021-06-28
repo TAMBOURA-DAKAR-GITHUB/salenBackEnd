@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface AffecterPlaceUtilisateurRepository extends JpaRepository<AffecterPlaceUtilisateur , Long> {
 
-    public Page<AffecterPlaceUtilisateur> listeAffecterUtilisateur(Pageable pageable);
+    //public Page<AffecterPlaceUtilisateur> listeAffecterUtilisateur(Pageable pageable);
 }

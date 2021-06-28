@@ -10,6 +10,6 @@ public interface MarcherInterface {
     public Marcher addMarcher(Marcher marcher);
     public List<Marcher> listeMarcher();
     public Marcher listeById(long id);
-    public Marcher UpdateMarcher(long id , Marcher marcher);
+    public Marcher UpdateMarcher(Marcher marcher);
     public void deleteMarcher(long id);
 }

@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface CercleRepository extends JpaRepository<Cercle , Long> {
 
-    public Page<Cercle> listeCercleByPage(Pageable pageable);
+    //public Page<Cercle> listeCercleByPage(Pageable pageable);
 }

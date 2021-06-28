@@ -11,7 +11,7 @@ public interface RegionInterface {
     public Region addRegion(Region region);
     public List<Region> listeRegions();
     public Region RegionById(long id);
-    public Region UpdateRegion(long id , Region region);
+    public Region UpdateRegion(Region region);
     public void deleteRegion(long id);
 
 }

@@ -11,6 +11,6 @@ public interface MairieInterface {
     public Mairie addMairie(Mairie mairie);
     public List<Mairie> listeMairie();
     public Mairie listeById(long id);
-    public Mairie UpdateMairie(long id , Mairie mairie);
+    public Mairie UpdateMairie( Mairie mairie);
     public void deleteMairie(long id);
 }

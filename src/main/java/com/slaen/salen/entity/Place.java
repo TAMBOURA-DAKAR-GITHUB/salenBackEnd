@@ -1,5 +1,6 @@
 package com.slaen.salen.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -19,8 +20,11 @@ public class Place implements Serializable {
     @ManyToOne
     private Marcher marcher;
     @OneToMany(mappedBy = "place")
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceUtilisateur> affecterPlaceUtilisateurs;
     @OneToMany(mappedBy = "place")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceMarchand> affecterPlaceMarchands;
 
 

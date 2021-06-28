@@ -9,5 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface AffecterPlaceMarchandRepository extends JpaRepository<AffecterPlaceMarchand ,Long> {
 
-    public Page<AffecterPlaceMarchand> listeAffecterMarchand(Pageable pageable);
+    //public Page<AffecterPlaceMarchand> listeAffecterMarchand(Pageable pageable);
+
 }

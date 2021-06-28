@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Utilisateur;
 import com.slaen.salen.repository.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UtilisateurImp implements UtilisateurInterface {
 
     private UtilisateurRepository utilisateurRepository;
@@ -30,8 +32,7 @@ public class UtilisateurImp implements UtilisateurInterface {
     }
 
     @Override
-    public Utilisateur UpdateUtilisateur(long id, Utilisateur utilisateur) {
-        utilisateur.setIdUtilisateur(id);
+    public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
         return utilisateurRepository.save(utilisateur);
     }
 

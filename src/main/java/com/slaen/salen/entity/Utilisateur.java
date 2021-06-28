@@ -1,5 +1,6 @@
 package com.slaen.salen.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -31,19 +32,24 @@ public class Utilisateur implements Serializable {
     @NotNull
     private String emailUtilisateur;
 
+    @ManyToOne
+    private Mairie mairie;
+
     @OneToMany(mappedBy = "utilisateur")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceUtilisateur> affecterPlaceUtilisateurs;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String adresseUtilisateur, String codeUtilisateur, String telephoneUtilisateur, String emailUtilisateur) {
+    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String adresseUtilisateur, String codeUtilisateur, String telephoneUtilisateur, String emailUtilisateur , Mairie mairie) {
         this.nomUtilisateur = nomUtilisateur;
         this.prenomUtilisateur = prenomUtilisateur;
         this.adresseUtilisateur = adresseUtilisateur;
         this.codeUtilisateur = codeUtilisateur;
         this.telephoneUtilisateur = telephoneUtilisateur;
         this.emailUtilisateur = emailUtilisateur;
+        this.mairie= mairie;
     }
 
     public long getIdUtilisateur() {
@@ -110,6 +116,14 @@ public class Utilisateur implements Serializable {
         this.affecterPlaceUtilisateurs = affecterPlaceUtilisateurs;
     }
 
+    public Mairie getMairie() {
+        return mairie;
+    }
+
+    public void setMairie(Mairie mairie) {
+        this.mairie = mairie;
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" +
@@ -120,6 +134,7 @@ public class Utilisateur implements Serializable {
                 ", codeUtilisateur='" + codeUtilisateur + '\'' +
                 ", telephoneUtilisateur='" + telephoneUtilisateur + '\'' +
                 ", emailUtilisateur='" + emailUtilisateur + '\'' +
+                ", mairie=" + mairie +
                 ", affecterPlaceUtilisateurs=" + affecterPlaceUtilisateurs +
                 '}';
     }

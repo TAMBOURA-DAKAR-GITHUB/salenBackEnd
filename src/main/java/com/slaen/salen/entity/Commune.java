@@ -1,5 +1,6 @@
 package com.slaen.salen.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -17,8 +18,10 @@ public class Commune implements Serializable {
     private String libelleCommune;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Cercle cercle;
     @OneToMany(mappedBy = "commune")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Mairie> mairies;
 
     public Commune() {

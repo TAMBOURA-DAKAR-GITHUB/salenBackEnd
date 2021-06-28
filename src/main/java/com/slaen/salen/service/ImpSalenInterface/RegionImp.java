@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Region;
 import com.slaen.salen.repository.RegionRepository;
 import com.slaen.salen.service.Saleninterface.RegionInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RegionImp implements RegionInterface {
 
     private RegionRepository regionRepository;
@@ -31,8 +33,7 @@ public class RegionImp implements RegionInterface {
 
 
     @Override
-    public Region UpdateRegion(long id, Region region) {
-        region.setIdRegion(id);
+    public Region UpdateRegion(Region region) {
         return regionRepository.save(region);
     }
 

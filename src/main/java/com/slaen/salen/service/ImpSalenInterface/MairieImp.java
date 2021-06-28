@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Mairie;
 import com.slaen.salen.repository.MairieRepository;
 import com.slaen.salen.service.Saleninterface.MairieInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MairieImp implements MairieInterface {
 
     private MairieRepository mairieRepository;
@@ -30,8 +32,7 @@ public class MairieImp implements MairieInterface {
     }
 
     @Override
-    public Mairie UpdateMairie(long id, Mairie mairie) {
-        mairie.setIdMairie(id);
+    public Mairie UpdateMairie(Mairie mairie) {
         return mairieRepository.save(mairie);
     }
 

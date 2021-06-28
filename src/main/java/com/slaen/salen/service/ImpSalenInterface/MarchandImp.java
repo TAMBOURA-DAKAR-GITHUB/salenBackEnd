@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Marchand;
 import com.slaen.salen.repository.MarchandRepository;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MarchandImp implements MarchandInterface {
 
     private MarchandRepository marchandRepository;
@@ -30,8 +32,7 @@ public class MarchandImp implements MarchandInterface {
     }
 
     @Override
-    public Marchand UpdateMarcher(long id, Marchand marchand) {
-        marchand.setIdMarchand(id);
+    public Marchand UpdateMarcher(Marchand marchand) {
         return marchandRepository.save(marchand);
     }
 

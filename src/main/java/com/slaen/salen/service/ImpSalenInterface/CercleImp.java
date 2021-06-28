@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Cercle;
 import com.slaen.salen.repository.CercleRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CercleImp implements CercleInterface {
 
     private CercleRepository cercleRepository;
@@ -30,8 +32,7 @@ public class CercleImp implements CercleInterface {
     }
 
     @Override
-    public Cercle UpdateCercle(long id, Cercle cercle) {
-        cercle.setIdCercle(id);
+    public Cercle UpdateCercle(Cercle cercle) {
         return cercleRepository.save(cercle);
     }
 

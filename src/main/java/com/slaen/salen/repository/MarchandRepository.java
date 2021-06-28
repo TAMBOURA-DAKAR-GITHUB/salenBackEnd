@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface MarchandRepository extends JpaRepository<Marchand , Long> {
 
-    @RequestMapping(path = "/listeMarchandByPage" , method = RequestMethod.GET)
-    public Page<Marchand> listeMarchandByPage(Pageable pageable);
-
-    @RequestMapping(path = "/marchandByTelephone" , method = RequestMethod.GET)
-    public Marchand findByTelephoneMarchandContains(String telephone);
+//    @RequestMapping(path = "/listeMarchandByPage" , method = RequestMethod.GET)
+//    public Page<Marchand> listeMarchandByPage(Pageable pageable);
+//
+//    @RequestMapping(path = "/marchandByTelephone" , method = RequestMethod.GET)
+//    public Marchand findByTelephoneMarchandContains(String telephone);
 }

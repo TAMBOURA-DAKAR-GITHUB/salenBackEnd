@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Payement;
 import com.slaen.salen.repository.PayementRepository;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PayementImp implements PayementInterface {
 
     private PayementRepository payementRepository;
@@ -30,8 +32,7 @@ public class PayementImp implements PayementInterface {
     }
 
     @Override
-    public Payement UpdatePayement(long id, Payement payement) {
-        payement.setIdPayement(id);
+    public Payement UpdatePayement(Payement payement) {
         return payementRepository.save(payement);
     }
 

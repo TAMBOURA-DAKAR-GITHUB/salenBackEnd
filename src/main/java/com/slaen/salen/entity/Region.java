@@ -1,5 +1,6 @@
 package com.slaen.salen.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Region implements Serializable {
     @NotNull
     private String libelleRegion;
     @OneToMany(mappedBy = "region")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Cercle> cercles;
 
     public Region() {

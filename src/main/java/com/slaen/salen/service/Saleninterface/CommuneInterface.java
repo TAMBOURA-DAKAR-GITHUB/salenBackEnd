@@ -11,6 +11,6 @@ public interface CommuneInterface {
     public Commune addCommune(Commune commune);
     public List<Commune> listeCommune();
     public Commune listeById(long id);
-    public Commune UpdateCommune(long id , Commune commune);
+    public Commune UpdateCommune(Commune commune);
     public void deleteCommune(long id);
 }

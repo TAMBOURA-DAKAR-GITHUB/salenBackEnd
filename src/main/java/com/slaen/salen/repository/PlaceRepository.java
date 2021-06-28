@@ -9,5 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 public interface PlaceRepository extends JpaRepository<Place , Long> {
-    public Page<Place> listePlaceByPage(Pageable pageable);
+
+    //public Page<Place> listePlaceByPage(Pageable pageable);
+    Place findByNumeroPlace(String numero);
 }

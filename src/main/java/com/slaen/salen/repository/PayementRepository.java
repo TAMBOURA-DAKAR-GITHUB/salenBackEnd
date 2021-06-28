@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface PayementRepository extends JpaRepository<Payement , Long> {
 
-    public Page<Payement> listePayementByPage(Pageable pageable);
+    //public Page<Payement> listePayementByPage(Pageable pageable);
 }

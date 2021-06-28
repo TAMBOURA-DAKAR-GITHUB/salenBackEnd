@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface MairieRepository extends JpaRepository<Mairie , Long> {
 
-    public Page<Mairie> listeMairieByPage(Pageable pageable);
+    //public Page<Mairie> listeMairieByPage(Pageable pageable);
 }

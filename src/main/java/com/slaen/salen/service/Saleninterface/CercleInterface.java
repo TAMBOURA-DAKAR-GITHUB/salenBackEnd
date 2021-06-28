@@ -11,6 +11,6 @@ public interface CercleInterface {
     public Cercle addCercle(Cercle cercle);
     public List<Cercle> listeCercle();
     public Cercle listeById(long id);
-    public Cercle UpdateCercle(long id , Cercle cercle);
+    public Cercle UpdateCercle(Cercle cercle);
     public void deleteCercle(long id);
 }

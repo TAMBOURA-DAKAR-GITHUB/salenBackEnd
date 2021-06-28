@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface CommuneRepository extends JpaRepository<Commune , Long> {
 
-    public Page<Commune> listeCommuneByPage(Pageable pageable);
+   // public Page<Commune> listeCommuneByPage(Pageable pageable);
 }

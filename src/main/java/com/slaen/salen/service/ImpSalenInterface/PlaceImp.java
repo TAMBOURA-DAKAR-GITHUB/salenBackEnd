@@ -3,9 +3,11 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Place;
 import com.slaen.salen.repository.PlaceRepository;
 import com.slaen.salen.service.Saleninterface.PlaceInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PlaceImp implements PlaceInterface {
 
     private PlaceRepository placeRepository;
@@ -15,7 +17,7 @@ public class PlaceImp implements PlaceInterface {
     }
 
     @Override
-    public Place addPayement(Place place) {
+    public Place addPlace(Place place) {
         return placeRepository.save(place);
     }
 
@@ -30,8 +32,7 @@ public class PlaceImp implements PlaceInterface {
     }
 
     @Override
-    public Place UpdatePayement(long id, Place place) {
-        place.setIdPlace(id);
+    public Place UpdatePlace(Place place) {
         return placeRepository.save(place);
     }
 

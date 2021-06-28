@@ -1,5 +1,7 @@
 package com.slaen.salen.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -14,8 +16,11 @@ public class Marcher implements Serializable {
     private String libelleMarcher;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Mairie mairie;
+
     @OneToMany(mappedBy = "marcher")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Place> places;
 
     public Marcher() {

@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 public interface MarcherRepository extends JpaRepository<Marcher , Long> {
 
-    public Page<Marcher>  listeMaecherByPage(Pageable pageable);
+    //public Page<Marcher>  listeMaecherByPage(Pageable pageable);
 }

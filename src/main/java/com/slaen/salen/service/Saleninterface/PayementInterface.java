@@ -11,7 +11,10 @@ public interface PayementInterface {
     public Payement addPayement(Payement payement);
     public List<Payement> listePayement();
     public Payement listeById(long id);
-    public Payement UpdatePayement(long id , Payement payement);
+    public Payement UpdatePayement(Payement payement);
     public void deletePayement(long id);
+
+    // la gestion des payements
+
 
 }
