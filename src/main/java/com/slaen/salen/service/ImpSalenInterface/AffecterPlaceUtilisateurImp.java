@@ -53,10 +53,20 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
     @Override
     public void AffecterPlaceToUtilisateur(Utilisateur utilisateur, Place place) {
 
-        Utilisateur u = utilisateurRepository.findByCodeUtilisateur(utilisateur.getCodeUtilisateur());
-        System.out.println(u);
-        Place p = placeRepository.findByNumeroPlace(place.getNumeroPlace());
-        System.out.println(p);
+        AffecterPlaceUtilisateur affecterPlaceUtilisateur = new AffecterPlaceUtilisateur();
+
+        //Utilisateur u = utilisateurRepository.findByCodeUtilisateur(utilisateur.getCodeUtilisateur());
+        //System.out.println(u.getIdUtilisateur());
+        //Place p = placeRepository.findByNumeroPlace(place.getNumeroPlace());
+        //System.out.println(p.getIdPlace());
+        affecterPlaceUtilisateur.setUtilisateur(utilisateur);
+        affecterPlaceUtilisateur.setPlace(place);
+        affecterPlaceUtilisateurRepository.save(affecterPlaceUtilisateur);
+
+
+
+
+
 
 
     }

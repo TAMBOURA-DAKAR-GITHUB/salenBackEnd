@@ -2,10 +2,16 @@ package com.slaen.salen;
 
 import com.slaen.salen.entity.*;
 import com.slaen.salen.repository.*;
+import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
+import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
+import com.slaen.salen.service.Saleninterface.MarchandInterface;
+import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+
+import java.util.Date;
 
 @SpringBootApplication
 public class SalenApplication implements CommandLineRunner {
@@ -19,9 +25,15 @@ public class SalenApplication implements CommandLineRunner {
 	private UtilisateurRepository utilisateurRepository;
 	private MarcherRepository marcherRepository;
 
+	private AffecterPlaceUtilisateurInterface utilisateurInterface;
+	private AffecterPlaceMarchandInterface affecterPlaceMarchandInterface;
+
+	private MarchandInterface marchandInterface;
+
+
 	public SalenApplication(RegionRepository regionRepository, CercleRepository cercleRepository,
 							RepositoryRestConfiguration repositoryRestConfiguration, CommuneRepository communeRepository,
-							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository) {
+							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository, UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface, MarchandInterface marchandInterface) {
 		this.regionRepository = regionRepository;
 		this.cercleRepository = cercleRepository;
 		this.repositoryRestConfiguration = repositoryRestConfiguration;
@@ -30,6 +42,9 @@ public class SalenApplication implements CommandLineRunner {
 		this.placeRepository = placeRepository;
 		this.utilisateurRepository = utilisateurRepository;
 		this.marcherRepository = marcherRepository;
+		this.utilisateurInterface = utilisateurInterface1;
+		this.affecterPlaceMarchandInterface = affecterPlaceMarchandInterface;
+		this.marchandInterface = marchandInterface;
 	}
 
 	public static void main(String[] args) {
@@ -122,19 +137,36 @@ public class SalenApplication implements CommandLineRunner {
 		Marcher marcher3=marcherRepository.save(new Marcher("Marcher Y-A",mairie2));
 		Marcher marcher4=marcherRepository.save(new Marcher("Marcher Y-A",mairie2));
 
-		placeRepository.save(new Place("P00001",marcher3));
-		placeRepository.save(new Place("P00002",marcher3));
-		placeRepository.save(new Place("P00003",marcher3));
-		placeRepository.save(new Place("P00004",marcher3));
-		placeRepository.save(new Place("P00005",marcher3));
+		Place place1= placeRepository.save(new Place("P00001",marcher3));
+		Place place2=placeRepository.save(new Place("P00002",marcher3));
+		Place place3=placeRepository.save(new Place("P00003",marcher3));
+		Place place4=placeRepository.save(new Place("P00004",marcher3));
+		Place place5=placeRepository.save(new Place("P00005",marcher3));
 
 
-		utilisateurRepository.save(new Utilisateur("TAMBOURA","Nouhoum","Yirimadio","C00001","87 97 65 33","ntam@gmail.com",mairie2));
-		utilisateurRepository.save(new Utilisateur("DIARRA","Mamadou","Yirimadio","C00002","88 97 00 33","ma@gmail.com",mairie2));
-		utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","C00003","34 00 65 33","fous@gmail.com",mairie2));
-		utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","C00004","90 97 65 33","al@gmail.com",mairie2));
+		Marchand marchand1= marchandInterface.addMarchand(new Marchand("BABA","BABA",new Date(),"89 76 34 09"));
+		Marchand marchand2=marchandInterface.addMarchand(new Marchand("CISSE","OUMAR",new Date(),"89 76 34 09"));
+		Marchand marchand3=marchandInterface.addMarchand(new Marchand("TRAORE","ABDOU",new Date(),"89 76 34 09"));
+		Marchand marchand4=marchandInterface.addMarchand(new Marchand("DIARRA","MAMADOU",new Date(),"89 76 34 09"));
 
 
+
+		Utilisateur utilisateur1= utilisateurRepository.save(new Utilisateur("TAMBOURA","Nouhoum","Yirimadio","C00001","87 97 65 33","ntam@gmail.com",mairie2));
+		Utilisateur utilisateur2=utilisateurRepository.save(new Utilisateur("DIARRA","Mamadou","Yirimadio","C00002","88 97 00 33","ma@gmail.com",mairie2));
+		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","C00003","34 00 65 33","fous@gmail.com",mairie2));
+		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","C00004","90 97 65 33","al@gmail.com",mairie2));
+
+
+		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur1,place1);
+		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur2,place4);
+		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur3,place3);
+		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur4,place2);
+
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand1,place1);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand2,place2);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand1,place2);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand3,place4);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand4,place3);
 
 
 

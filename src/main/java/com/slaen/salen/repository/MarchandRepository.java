@@ -17,4 +17,7 @@ public interface MarchandRepository extends JpaRepository<Marchand , Long> {
 //
 //    @RequestMapping(path = "/marchandByTelephone" , method = RequestMethod.GET)
 //    public Marchand findByTelephoneMarchandContains(String telephone);
+
+    Marchand findByNomMarchand(String nom);
 }
+
