@@ -33,6 +33,10 @@ public class Payement implements Serializable {
         this.resteApaye = resteApaye;
         this.marchand = marchand;
         this.place=place;
+
+        /* les information sur le marchand est recupere l'orsqu'on appui sur la liste des marchands
+        idm pour les places. Ensuite le champs payement est afficher pour faire le payement
+         */
     }
 
     public long getIdPayement() {
