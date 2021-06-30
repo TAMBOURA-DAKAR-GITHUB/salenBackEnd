@@ -26,6 +26,8 @@ public class Place implements Serializable {
     @OneToMany(mappedBy = "place")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceMarchand> affecterPlaceMarchands;
+    @OneToMany(mappedBy = "place")
+    private Collection<Payement> payements;
 
 
     public Place() {
@@ -76,6 +78,14 @@ public class Place implements Serializable {
         this.affecterPlaceMarchands = affecterPlaceMarchands;
     }
 
+    public Collection<Payement> getPayements() {
+        return payements;
+    }
+
+    public void setPayements(Collection<Payement> payements) {
+        this.payements = payements;
+    }
+
     @Override
     public String toString() {
         return "Place{" +
@@ -84,6 +94,7 @@ public class Place implements Serializable {
                 ", marcher=" + marcher +
                 ", affecterPlaceUtilisateurs=" + affecterPlaceUtilisateurs +
                 ", affecterPlaceMarchands=" + affecterPlaceMarchands +
+                ", payements=" + payements +
                 '}';
     }
 }

@@ -2,10 +2,7 @@ package com.slaen.salen;
 
 import com.slaen.salen.entity.*;
 import com.slaen.salen.repository.*;
-import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
-import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
-import com.slaen.salen.service.Saleninterface.MarchandInterface;
-import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
+import com.slaen.salen.service.Saleninterface.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,13 +24,13 @@ public class SalenApplication implements CommandLineRunner {
 
 	private AffecterPlaceUtilisateurInterface utilisateurInterface;
 	private AffecterPlaceMarchandInterface affecterPlaceMarchandInterface;
-
 	private MarchandInterface marchandInterface;
+	private PayementInterface payementInterface;
 
 
 	public SalenApplication(RegionRepository regionRepository, CercleRepository cercleRepository,
 							RepositoryRestConfiguration repositoryRestConfiguration, CommuneRepository communeRepository,
-							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository, UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface, MarchandInterface marchandInterface) {
+							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository, UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface, MarchandInterface marchandInterface, PayementInterface payementInterface) {
 		this.regionRepository = regionRepository;
 		this.cercleRepository = cercleRepository;
 		this.repositoryRestConfiguration = repositoryRestConfiguration;
@@ -45,6 +42,7 @@ public class SalenApplication implements CommandLineRunner {
 		this.utilisateurInterface = utilisateurInterface1;
 		this.affecterPlaceMarchandInterface = affecterPlaceMarchandInterface;
 		this.marchandInterface = marchandInterface;
+		this.payementInterface = payementInterface;
 	}
 
 	public static void main(String[] args) {
@@ -167,6 +165,14 @@ public class SalenApplication implements CommandLineRunner {
 		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand1,place2);
 		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand3,place4);
 		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand4,place3);
+
+		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place1));
+		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place2));
+		payementInterface.addPayement(new Payement(new Date(),100,0, marchand2,place3));
+		payementInterface.addPayement(new Payement(new Date(),100,0, marchand4,place5));
+
+
+
 
 
 

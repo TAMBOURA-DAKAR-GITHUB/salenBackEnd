@@ -17,19 +17,22 @@ public class Payement implements Serializable {
     @NotNull
     private double montantPayement;
     @NotNull
-    private double ResteApaye;
+    private double resteApaye;
 
     @ManyToOne
     private Marchand marchand;
+    @ManyToOne
+    private Place place;
 
     public Payement() {
     }
 
-    public Payement(Date datePayement, double montantPayement, double resteApaye, Marchand marchand) {
+    public Payement(Date datePayement, double montantPayement, double resteApaye, Marchand marchand , Place place) {
         this.datePayement = datePayement;
         this.montantPayement = montantPayement;
-        ResteApaye = resteApaye;
+        this.resteApaye = resteApaye;
         this.marchand = marchand;
+        this.place=place;
     }
 
     public long getIdPayement() {
@@ -57,11 +60,11 @@ public class Payement implements Serializable {
     }
 
     public double getResteApaye() {
-        return ResteApaye;
+        return resteApaye;
     }
 
     public void setResteApaye(double resteApaye) {
-        ResteApaye = resteApaye;
+        this.resteApaye = resteApaye;
     }
 
     public Marchand getMarchand() {
@@ -72,14 +75,23 @@ public class Payement implements Serializable {
         this.marchand = marchand;
     }
 
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
     @Override
     public String toString() {
         return "Payement{" +
                 "idPayement=" + idPayement +
                 ", datePayement=" + datePayement +
                 ", montantPayement=" + montantPayement +
-                ", ResteApaye=" + ResteApaye +
+                ", resteApaye=" + resteApaye +
                 ", marchand=" + marchand +
+                ", place=" + place +
                 '}';
     }
 }
