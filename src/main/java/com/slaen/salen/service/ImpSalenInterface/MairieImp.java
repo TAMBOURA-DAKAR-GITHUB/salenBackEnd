@@ -3,6 +3,7 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.entity.Mairie;
 import com.slaen.salen.repository.MairieRepository;
 import com.slaen.salen.service.Saleninterface.MairieInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class MairieImp implements MairieInterface {
 
     @Override
     public List<Mairie> listeMairie() {
-        return mairieRepository.findAll();
+        return mairieRepository.findAll(Sort.by("idMairie").descending());
     }
 
     @Override

@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@CrossOrigin("*")
+@RequestMapping("/api/commune")
 public class CommuneController {
 
     private CommuneInterface communeInterface;

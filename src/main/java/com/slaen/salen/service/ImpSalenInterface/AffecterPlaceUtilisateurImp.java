@@ -7,6 +7,7 @@ import com.slaen.salen.repository.AffecterPlaceUtilisateurRepository;
 import com.slaen.salen.repository.PlaceRepository;
 import com.slaen.salen.repository.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
     private PlaceRepository placeRepository;
     private UtilisateurRepository utilisateurRepository;
 
-    public AffecterPlaceUtilisateurImp(AffecterPlaceUtilisateurRepository affecterPlaceUtilisateurRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository) {
+    public AffecterPlaceUtilisateurImp(AffecterPlaceUtilisateurRepository affecterPlaceUtilisateurRepository,
+                                       PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository) {
         this.affecterPlaceUtilisateurRepository = affecterPlaceUtilisateurRepository;
         this.placeRepository = placeRepository;
         this.utilisateurRepository = utilisateurRepository;
@@ -31,7 +33,7 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
 
     @Override
     public List<AffecterPlaceUtilisateur> listeAffecterPlaceUtilisateur() {
-        return affecterPlaceUtilisateurRepository.findAll();
+        return affecterPlaceUtilisateurRepository.findAll(Sort.by("dateAffecterPlaceUtilisateur").descending());
     }
 
     @Override

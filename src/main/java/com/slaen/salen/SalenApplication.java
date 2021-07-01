@@ -64,6 +64,8 @@ public class SalenApplication implements CommandLineRunner {
 		Region region9= regionRepository.save(new Region("Taoudeni"));
 		Region region10= regionRepository.save(new Region("Tessalite"));
 
+		Region region11= regionRepository.save(new Region("Bamako"));
+
 		Cercle cercle1= cercleRepository.save(new Cercle("cercle1", region1));
 		Cercle cercle2= cercleRepository.save(new Cercle("cercle2", region1));
 		Cercle cercle3= cercleRepository.save(new Cercle("cercle3", region1));
@@ -104,31 +106,23 @@ public class SalenApplication implements CommandLineRunner {
 		Cercle cercle29= cercleRepository.save(new Cercle("cercle2", region10));
 		Cercle cercle30= cercleRepository.save(new Cercle("cercle3", region10));
 
-		Commune commune1= communeRepository.save(new Commune("Commune I",cercle1));
-		Commune commune2=communeRepository.save(new Commune("Commune II",cercle1));
-		Commune commune3=communeRepository.save(new Commune("Commune III",cercle1));
-		Commune commune4=communeRepository.save(new Commune("Commune VI",cercle1));
-		Commune commune5=communeRepository.save(new Commune("Commune V",cercle1));
-		Commune commune6=communeRepository.save(new Commune("Commune VI",cercle1));
+		Cercle cercle31= cercleRepository.save(new Cercle("Bamako", region11));
 
-		Commune commune7=communeRepository.save(new Commune("Commune I",cercle2));
-		Commune commune8=communeRepository.save(new Commune("Commune II",cercle2));
-		Commune commune9=communeRepository.save(new Commune("Commune III",cercle2));
-		Commune commune10=communeRepository.save(new Commune("Commune VI",cercle2));
-		Commune commune11=communeRepository.save(new Commune("Commune V",cercle2));
-		Commune commune12=communeRepository.save(new Commune("Commune VI",cercle2));
 
-		Commune commune13=communeRepository.save(new Commune("Commune I",cercle3));
-		Commune commune14=communeRepository.save(new Commune("Commune II",cercle3));
-		Commune commune15=communeRepository.save(new Commune("Commune III",cercle3));
-		Commune commune16=communeRepository.save(new Commune("Commune VI",cercle3));
-		Commune commune17=communeRepository.save(new Commune("Commune V",cercle3));
-		Commune commune18=communeRepository.save(new Commune("Commune VI",cercle3));
+
+		Commune commune1= communeRepository.save(new Commune("Commune I",cercle31));
+		Commune commune2=communeRepository.save(new Commune("Commune II",cercle31));
+		Commune commune3=communeRepository.save(new Commune("Commune III",cercle31));
+		Commune commune4=communeRepository.save(new Commune("Commune VI",cercle31));
+		Commune commune5=communeRepository.save(new Commune("Commune V",cercle31));
+		Commune commune6=communeRepository.save(new Commune("Commune VI",cercle31));
+
+
 
 		Mairie mairie1= mairieRepository.save(new Mairie("Mairie Sokonigo","Sokonigo","Principale" ,commune6));
-		Mairie mairie2=mairieRepository.save(new Mairie("Mairie Yirimadio","Yirimadio","Secondiare" ,commune6));
-		Mairie mairie3=mairieRepository.save(new Mairie("Mairie Faladie","Faladie","Secondiare" ,commune6));
-		Mairie mairie4=mairieRepository.save(new Mairie("Mairie Banankabougou","Banankabougou","Secondiare" ,commune6));
+		Mairie mairie2=mairieRepository.save(new Mairie("Mairie Yirimadio","Yirimadio","Secondaire" ,commune6));
+		Mairie mairie3=mairieRepository.save(new Mairie("Mairie Faladie","Faladie","Secondaire" ,commune6));
+		Mairie mairie4=mairieRepository.save(new Mairie("Mairie Banankabougou","Banankabougou","Secondaire" ,commune6));
 
 		Marcher marcher1= marcherRepository.save(new Marcher("Marcher S-A",mairie1));
 		Marcher marcher2=marcherRepository.save(new Marcher("Marcher S-B",mairie1));

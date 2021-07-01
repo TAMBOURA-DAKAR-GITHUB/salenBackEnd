@@ -18,7 +18,7 @@ public class MairieController {
     }
 
     @PostMapping(value = "/addMairie")
-    public Mairie addCommune(@RequestBody Mairie mairie){
+    public Mairie addMairie(@RequestBody Mairie mairie){
         return mairieInterface.addMairie(mairie);
     }
 
