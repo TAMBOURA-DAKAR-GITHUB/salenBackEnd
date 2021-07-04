@@ -143,10 +143,10 @@ public class SalenApplication implements CommandLineRunner {
 
 
 
-		Utilisateur utilisateur1= utilisateurRepository.save(new Utilisateur("TAMBOURA","Nouhoum","Yirimadio","C00001","87 97 65 33","ntam@gmail.com",mairie2));
-		Utilisateur utilisateur2=utilisateurRepository.save(new Utilisateur("DIARRA","Mamadou","Yirimadio","C00002","88 97 00 33","ma@gmail.com",mairie2));
-		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","C00003","34 00 65 33","fous@gmail.com",mairie2));
-		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","C00004","90 97 65 33","al@gmail.com",mairie2));
+		Utilisateur utilisateur1= utilisateurRepository.save(new Utilisateur("TAMBOURA","Nouhoum","Yirimadio","87 97 65 33","ntam@gmail.com",mairie2));
+		Utilisateur utilisateur2=utilisateurRepository.save(new Utilisateur("DIARRA","Mamadou","Yirimadio","88 97 00 33","ma@gmail.com",mairie2));
+		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","34 00 65 33","fous@gmail.com",mairie2));
+		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie2));
 
 
 		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur1,place1);

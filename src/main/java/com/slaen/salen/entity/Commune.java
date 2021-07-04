@@ -20,7 +20,8 @@ public class Commune implements Serializable {
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Cercle cercle;
-    @OneToMany(mappedBy = "commune")
+
+    @OneToMany(mappedBy = "commune" , cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Mairie> mairies;
 

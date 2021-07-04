@@ -9,6 +9,8 @@ import java.util.Collection;
 
 @Entity
 public class Utilisateur implements Serializable {
+    private static String code="Code :";
+    private static long valeur=1;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +34,9 @@ public class Utilisateur implements Serializable {
     @NotNull
     private String emailUtilisateur;
 
+
+
+
     @ManyToOne
     private Mairie mairie;
 
@@ -42,14 +47,14 @@ public class Utilisateur implements Serializable {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String adresseUtilisateur, String codeUtilisateur, String telephoneUtilisateur, String emailUtilisateur , Mairie mairie) {
+    public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String adresseUtilisateur,  String telephoneUtilisateur, String emailUtilisateur , Mairie mairie) {
         this.nomUtilisateur = nomUtilisateur;
         this.prenomUtilisateur = prenomUtilisateur;
         this.adresseUtilisateur = adresseUtilisateur;
-        this.codeUtilisateur = codeUtilisateur;
         this.telephoneUtilisateur = telephoneUtilisateur;
         this.emailUtilisateur = emailUtilisateur;
         this.mairie= mairie;
+        this.codeUtilisateur =  code+ String.valueOf(valeur++);
     }
 
     public long getIdUtilisateur() {
