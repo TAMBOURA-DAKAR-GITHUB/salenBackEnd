@@ -44,6 +44,11 @@ public class UtilisateurController {
     public void deleteById( @PathVariable(name = "id") Long id){
         utilisateurInterface.deleteUtilisateur(id);
     }
+
+    @GetMapping("/listeUtilisateurById/{id}")
+    public List<Utilisateur> listeByMairie(@PathVariable(name = "id") Long id){
+        return utilisateurInterface.listeByMairie(id);
+    }
 }
 
 

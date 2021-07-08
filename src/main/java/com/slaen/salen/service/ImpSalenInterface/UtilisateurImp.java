@@ -40,4 +40,11 @@ public class UtilisateurImp implements UtilisateurInterface {
     public void deleteUtilisateur(long id) {
         utilisateurRepository.deleteById(id);
     }
+
+    @Override
+    public List<Utilisateur> listeByMairie(Long idMairie) {
+        return utilisateurRepository.findByMairieIdMairie(idMairie);
+    }
+
+
 }

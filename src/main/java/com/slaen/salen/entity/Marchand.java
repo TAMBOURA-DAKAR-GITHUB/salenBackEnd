@@ -33,10 +33,10 @@ public class Marchand implements Serializable {
     public Marchand() {
     }
 
-    public Marchand(String nomMarchand, String prenomMarchand, Date dateOccupationMarchand, String telephoneMarchand) {
+    public Marchand(String nomMarchand, String prenomMarchand, String telephoneMarchand) {
         this.nomMarchand = nomMarchand;
         this.prenomMarchand = prenomMarchand;
-        this.dateOccupationMarchand = dateOccupationMarchand;
+        this.dateOccupationMarchand = new Date();
         this.telephoneMarchand = telephoneMarchand;
     }
 

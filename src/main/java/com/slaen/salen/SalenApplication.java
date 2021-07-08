@@ -136,10 +136,10 @@ public class SalenApplication implements CommandLineRunner {
 		Place place5=placeRepository.save(new Place("P00005",marcher3));
 
 
-		Marchand marchand1= marchandInterface.addMarchand(new Marchand("BABA","BABA",new Date(),"89 76 34 09"));
-		Marchand marchand2=marchandInterface.addMarchand(new Marchand("CISSE","OUMAR",new Date(),"89 76 34 09"));
-		Marchand marchand3=marchandInterface.addMarchand(new Marchand("TRAORE","ABDOU",new Date(),"89 76 34 09"));
-		Marchand marchand4=marchandInterface.addMarchand(new Marchand("DIARRA","MAMADOU",new Date(),"89 76 34 09"));
+		Marchand marchand1= marchandInterface.addMarchand(new Marchand("BABA","BABA","89 76 34 09"));
+		Marchand marchand2=marchandInterface.addMarchand(new Marchand("CISSE","OUMAR","89 76 34 09"));
+		Marchand marchand3=marchandInterface.addMarchand(new Marchand("TRAORE","ABDOU","89 76 34 09"));
+		Marchand marchand4=marchandInterface.addMarchand(new Marchand("DIARRA","MAMADOU","89 76 34 09"));
 
 
 
@@ -149,10 +149,7 @@ public class SalenApplication implements CommandLineRunner {
 		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie2));
 
 
-		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur1,place1);
-		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur2,place4);
-		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur3,place3);
-		utilisateurInterface.AffecterPlaceToUtilisateur(utilisateur4,place2);
+
 
 		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand1,place1);
 		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand2,place2);

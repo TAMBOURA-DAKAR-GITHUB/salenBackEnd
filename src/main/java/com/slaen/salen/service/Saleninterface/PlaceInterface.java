@@ -2,6 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
+import com.slaen.salen.entity.Marcher;
 import com.slaen.salen.entity.Place;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface PlaceInterface {
     public Place listeById(long id);
     public Place UpdatePlace(Place place);
     public void deletePlace(long id);
+
+    public List<Place> listeByPlace(Long idPlace);
 }

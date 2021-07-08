@@ -21,10 +21,10 @@ public class AffecterPlaceUtilisateur implements Serializable {
     public AffecterPlaceUtilisateur() {
     }
 
-    public AffecterPlaceUtilisateur(Date dateAffecterPlaceUtilisateur, Place place, Utilisateur utilisateur) {
-        this.dateAffecterPlaceUtilisateur = dateAffecterPlaceUtilisateur;
+    public AffecterPlaceUtilisateur(Place place, Utilisateur utilisateur) {
         this.place = place;
         this.utilisateur = utilisateur;
+        this.dateAffecterPlaceUtilisateur= new Date();
     }
 
     public long getIdAffecterPlaceUtilisateur() {

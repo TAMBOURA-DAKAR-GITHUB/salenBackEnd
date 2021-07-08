@@ -41,4 +41,9 @@ public class MarcherImp implements MarcherInterface {
         marcherRepository.deleteById(id);
 
     }
+
+    @Override
+    public List<Marcher> listeByMairie(Long idMairie) {
+        return marcherRepository.findByMairieIdMairie(idMairie);
+    }
 }

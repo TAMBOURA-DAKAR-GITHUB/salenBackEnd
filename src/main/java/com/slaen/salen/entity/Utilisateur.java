@@ -9,9 +9,9 @@ import java.util.Collection;
 
 @Entity
 public class Utilisateur implements Serializable {
+
     private static String code="Code :";
     private static long valeur=1;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUtilisateur;
@@ -33,9 +33,6 @@ public class Utilisateur implements Serializable {
     @Column(length = 50)
     @NotNull
     private String emailUtilisateur;
-
-
-
 
     @ManyToOne
     private Mairie mairie;

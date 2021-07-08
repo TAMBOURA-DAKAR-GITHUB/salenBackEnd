@@ -10,6 +10,7 @@ import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -53,16 +54,20 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
     }
 
     @Override
-    public void AffecterPlaceToUtilisateur(Utilisateur utilisateur, Place place) {
-
+    public void AffecterPlaceToUtilisateur(long ids , long id) {
         AffecterPlaceUtilisateur affecterPlaceUtilisateur = new AffecterPlaceUtilisateur();
-
-        //Utilisateur u = utilisateurRepository.findByCodeUtilisateur(utilisateur.getCodeUtilisateur());
-        //System.out.println(u.getIdUtilisateur());
-        //Place p = placeRepository.findByNumeroPlace(place.getNumeroPlace());
-        //System.out.println(p.getIdPlace());
-        affecterPlaceUtilisateur.setUtilisateur(utilisateur);
-        affecterPlaceUtilisateur.setPlace(place);
+        // recuperer utilisateur dont id = ids
+        Utilisateur u = utilisateurRepository.findByIdUtilisateur(ids);
+        System.out.println(u.getIdUtilisateur());
+        // recuperer la place dont id= id
+         Place p= placeRepository.findByIdPlace(id);
+         System.out.println(p.getIdPlace());
+        System.out.println("============================");
+        // les stockers dans la variable affecterPlaceUtilisateur
+        affecterPlaceUtilisateur.setUtilisateur(u);
+        affecterPlaceUtilisateur.setPlace(p);
+        affecterPlaceUtilisateur.setDateAffecterPlaceUtilisateur(new Date());
+        // et sauvegarder les donnees .
         affecterPlaceUtilisateurRepository.save(affecterPlaceUtilisateur);
 
 
@@ -71,5 +76,7 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
 
 
 
-    }
+
+        }
+
 }

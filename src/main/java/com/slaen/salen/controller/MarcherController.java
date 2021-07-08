@@ -2,6 +2,7 @@ package com.slaen.salen.controller;
 
 
 import com.slaen.salen.entity.Marcher;
+import com.slaen.salen.entity.Utilisateur;
 import com.slaen.salen.service.Saleninterface.MarcherInterface;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,5 +42,10 @@ public class MarcherController {
     @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable(name = "id") Long id){
         marcherInterface.deleteMarcher(id);
+    }
+
+    @GetMapping("/listeMarcherById/{id}")
+    public List<Marcher> listeByMairie(@PathVariable(name = "id") Long id){
+        return marcherInterface.listeByMairie(id);
     }
 }

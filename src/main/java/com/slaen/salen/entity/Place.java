@@ -26,6 +26,7 @@ public class Place implements Serializable {
     @OneToMany(mappedBy = "place")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceMarchand> affecterPlaceMarchands;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "place")
     private Collection<Payement> payements;
 

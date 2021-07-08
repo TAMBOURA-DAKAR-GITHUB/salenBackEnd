@@ -13,4 +13,6 @@ public interface UtilisateurInterface {
     public Utilisateur listeById(long id);
     public Utilisateur UpdateUtilisateur(Utilisateur utilisateur);
     public void deleteUtilisateur(long id);
+
+    public List<Utilisateur> listeByMairie(Long idMairie);
 }
