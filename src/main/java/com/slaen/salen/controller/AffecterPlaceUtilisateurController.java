@@ -27,7 +27,6 @@ public class AffecterPlaceUtilisateurController {
 
         for (long i : testPlaceToUser.getPlace()) {
             affecterPlaceUtilisateurRepository.AffecterPlaceToUtilisateur(idutilisateur , i);
-
         }
     }
 }

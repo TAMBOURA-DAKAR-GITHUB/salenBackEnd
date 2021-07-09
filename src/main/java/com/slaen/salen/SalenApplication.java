@@ -129,11 +129,22 @@ public class SalenApplication implements CommandLineRunner {
 		Marcher marcher3=marcherRepository.save(new Marcher("Marcher Y-A",mairie2));
 		Marcher marcher4=marcherRepository.save(new Marcher("Marcher Y-A",mairie2));
 
-		Place place1= placeRepository.save(new Place("P00001",marcher3));
+		Place place1= placeRepository.save(new Place("P00001", marcher3));
 		Place place2=placeRepository.save(new Place("P00002",marcher3));
 		Place place3=placeRepository.save(new Place("P00003",marcher3));
 		Place place4=placeRepository.save(new Place("P00004",marcher3));
 		Place place5=placeRepository.save(new Place("P00005",marcher3));
+
+		Place place6= placeRepository.save(new Place("P00001", marcher2));
+		Place place7=placeRepository.save(new Place("P00002",marcher2));
+		Place place8=placeRepository.save(new Place("P00003",marcher2));
+		Place place9=placeRepository.save(new Place("P00004",marcher2));
+		Place place10=placeRepository.save(new Place("P00005",marcher2));
+		Place place11= placeRepository.save(new Place("P00001", marcher2));
+		Place place12=placeRepository.save(new Place("P00002",marcher2));
+		Place place13=placeRepository.save(new Place("P00003",marcher3));
+		Place place14=placeRepository.save(new Place("P00004",marcher2));
+		Place place15=placeRepository.save(new Place("P00005",marcher3));
 
 
 		Marchand marchand1= marchandInterface.addMarchand(new Marchand("BABA","BABA","89 76 34 09"));

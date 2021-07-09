@@ -2,6 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
+import com.slaen.salen.entity.AffecterPlaceUtilisateur;
 import com.slaen.salen.entity.Utilisateur;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface UtilisateurInterface {
     public void deleteUtilisateur(long id);
 
     public List<Utilisateur> listeByMairie(Long idMairie);
+
+    public List<Object> findByAffecterPlaceUtilisateur(Long id);
 }

@@ -4,9 +4,10 @@ import com.slaen.salen.entity.Commune;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RestController;
 
-
+@Repository
 public interface CommuneRepository extends JpaRepository<Commune , Long> {
 
    // public Page<Commune> listeCommuneByPage(Pageable pageable);

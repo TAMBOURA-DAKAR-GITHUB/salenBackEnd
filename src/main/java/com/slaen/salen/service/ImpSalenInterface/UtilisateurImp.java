@@ -1,5 +1,6 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
+import com.slaen.salen.entity.AffecterPlaceUtilisateur;
 import com.slaen.salen.entity.Utilisateur;
 import com.slaen.salen.repository.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
@@ -44,6 +45,11 @@ public class UtilisateurImp implements UtilisateurInterface {
     @Override
     public List<Utilisateur> listeByMairie(Long idMairie) {
         return utilisateurRepository.findByMairieIdMairie(idMairie);
+    }
+
+   @Override
+    public List<Object> findByAffecterPlaceUtilisateur(Long id) {
+        return utilisateurRepository.findByAffecterplaceutilisateurUtilisateurr(id);
     }
 
 

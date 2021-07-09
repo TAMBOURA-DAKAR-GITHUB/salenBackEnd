@@ -16,8 +16,11 @@ public class Place implements Serializable {
     @Column(length = 50)
     @NotNull
     private String numeroPlace;
+    @NotNull
+    private  boolean selected;
 
     @ManyToOne
+    @JoinColumn(name = "idMarcher")
     private Marcher marcher;
     @OneToMany(mappedBy = "place")
 
@@ -34,8 +37,9 @@ public class Place implements Serializable {
     public Place() {
     }
 
-    public Place(String numeroPlace, Marcher marcher) {
+    public Place(String numeroPlace,  Marcher marcher) {
         this.numeroPlace = numeroPlace;
+       // this.selected = false;
         this.marcher = marcher;
     }
 
@@ -61,6 +65,14 @@ public class Place implements Serializable {
 
     public void setMarcher(Marcher marcher) {
         this.marcher = marcher;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
     public Collection<AffecterPlaceUtilisateur> getAffecterPlaceUtilisateurs() {
@@ -92,6 +104,7 @@ public class Place implements Serializable {
         return "Place{" +
                 "idPlace=" + idPlace +
                 ", numeroPlace='" + numeroPlace + '\'' +
+                ", selected=" + selected +
                 ", marcher=" + marcher +
                 ", affecterPlaceUtilisateurs=" + affecterPlaceUtilisateurs +
                 ", affecterPlaceMarchands=" + affecterPlaceMarchands +

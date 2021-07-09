@@ -14,8 +14,10 @@ public class AffecterPlaceUtilisateur implements Serializable {
     private Date dateAffecterPlaceUtilisateur;
 
     @ManyToOne
+    @JoinColumn(name = "idPlace")
     private Place place;
     @ManyToOne
+    @JoinColumn(name = "idUtilisateur")
     private Utilisateur utilisateur;
 
     public AffecterPlaceUtilisateur() {

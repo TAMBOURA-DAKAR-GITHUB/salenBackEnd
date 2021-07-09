@@ -2,6 +2,7 @@ package com.slaen.salen.controller;
 
 
 
+import com.slaen.salen.entity.AffecterPlaceUtilisateur;
 import com.slaen.salen.entity.Utilisateur;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +50,14 @@ public class UtilisateurController {
     public List<Utilisateur> listeByMairie(@PathVariable(name = "id") Long id){
         return utilisateurInterface.listeByMairie(id);
     }
+
+
+   @GetMapping("/listeByPlaceUtilisateur/{id}")
+    public List<Object> listeByPlaceUtilisateur(@PathVariable(name = "id") Long id){
+        return utilisateurInterface.findByAffecterPlaceUtilisateur(id);
+    }
+
+
 }
 
 

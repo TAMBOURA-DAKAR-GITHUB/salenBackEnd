@@ -56,17 +56,13 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
     @Override
     public void AffecterPlaceToUtilisateur(long ids , long id) {
         AffecterPlaceUtilisateur affecterPlaceUtilisateur = new AffecterPlaceUtilisateur();
-        // recuperer utilisateur dont id = ids
         Utilisateur u = utilisateurRepository.findByIdUtilisateur(ids);
-        System.out.println(u.getIdUtilisateur());
-        // recuperer la place dont id= id
          Place p= placeRepository.findByIdPlace(id);
-         System.out.println(p.getIdPlace());
-        System.out.println("============================");
-        // les stockers dans la variable affecterPlaceUtilisateur
+         p.setSelected(true);
         affecterPlaceUtilisateur.setUtilisateur(u);
         affecterPlaceUtilisateur.setPlace(p);
         affecterPlaceUtilisateur.setDateAffecterPlaceUtilisateur(new Date());
+
         // et sauvegarder les donnees .
         affecterPlaceUtilisateurRepository.save(affecterPlaceUtilisateur);
 

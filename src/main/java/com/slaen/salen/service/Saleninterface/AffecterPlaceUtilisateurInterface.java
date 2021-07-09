@@ -19,6 +19,7 @@ public interface  AffecterPlaceUtilisateurInterface {
 
 
 
+
     public void AffecterPlaceToUtilisateur(long ids , long id);
 
 
