@@ -17,7 +17,9 @@ public class Place implements Serializable {
     @NotNull
     private String numeroPlace;
     @NotNull
-    private  boolean selected;
+    private  boolean selectedUtilisateur;
+    @NotNull
+    private  boolean selectedMarchand;
 
     @ManyToOne
     @JoinColumn(name = "idMarcher")
@@ -67,12 +69,20 @@ public class Place implements Serializable {
         this.marcher = marcher;
     }
 
-    public boolean isSelected() {
-        return selected;
+    public boolean isSelectedUtilisateur() {
+        return selectedUtilisateur;
     }
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
+    public void setSelectedUtilisateur(boolean selectedUtilisateur) {
+        this.selectedUtilisateur = selectedUtilisateur;
+    }
+
+    public boolean isSelectedMarchand() {
+        return selectedMarchand;
+    }
+
+    public void setSelectedMarchand(boolean selectedMarchand) {
+        this.selectedMarchand = selectedMarchand;
     }
 
     public Collection<AffecterPlaceUtilisateur> getAffecterPlaceUtilisateurs() {
@@ -104,7 +114,8 @@ public class Place implements Serializable {
         return "Place{" +
                 "idPlace=" + idPlace +
                 ", numeroPlace='" + numeroPlace + '\'' +
-                ", selected=" + selected +
+                ", selectedUtilisateur=" + selectedUtilisateur +
+                ", selectedMarchand=" + selectedMarchand +
                 ", marcher=" + marcher +
                 ", affecterPlaceUtilisateurs=" + affecterPlaceUtilisateurs +
                 ", affecterPlaceMarchands=" + affecterPlaceMarchands +

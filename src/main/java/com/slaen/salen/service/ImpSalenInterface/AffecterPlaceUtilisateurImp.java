@@ -58,7 +58,7 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
         AffecterPlaceUtilisateur affecterPlaceUtilisateur = new AffecterPlaceUtilisateur();
         Utilisateur u = utilisateurRepository.findByIdUtilisateur(ids);
          Place p= placeRepository.findByIdPlace(id);
-         p.setSelected(true);
+         p.setSelectedUtilisateur(true);
         affecterPlaceUtilisateur.setUtilisateur(u);
         affecterPlaceUtilisateur.setPlace(p);
         affecterPlaceUtilisateur.setDateAffecterPlaceUtilisateur(new Date());

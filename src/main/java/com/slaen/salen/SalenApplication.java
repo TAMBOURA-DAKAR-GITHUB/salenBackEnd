@@ -127,7 +127,7 @@ public class SalenApplication implements CommandLineRunner {
 		Marcher marcher1= marcherRepository.save(new Marcher("Marcher S-A",mairie1));
 		Marcher marcher2=marcherRepository.save(new Marcher("Marcher S-B",mairie1));
 		Marcher marcher3=marcherRepository.save(new Marcher("Marcher Y-A",mairie2));
-		Marcher marcher4=marcherRepository.save(new Marcher("Marcher Y-A",mairie2));
+		Marcher marcher4=marcherRepository.save(new Marcher("Marcher Y-B",mairie2));
 
 		Place place1= placeRepository.save(new Place("P00001", marcher3));
 		Place place2=placeRepository.save(new Place("P00002",marcher3));
@@ -135,11 +135,11 @@ public class SalenApplication implements CommandLineRunner {
 		Place place4=placeRepository.save(new Place("P00004",marcher3));
 		Place place5=placeRepository.save(new Place("P00005",marcher3));
 
-		Place place6= placeRepository.save(new Place("P00001", marcher2));
-		Place place7=placeRepository.save(new Place("P00002",marcher2));
-		Place place8=placeRepository.save(new Place("P00003",marcher2));
-		Place place9=placeRepository.save(new Place("P00004",marcher2));
-		Place place10=placeRepository.save(new Place("P00005",marcher2));
+		Place place6= placeRepository.save(new Place("P00A01", marcher2));
+		Place place7=placeRepository.save(new Place("P000A2",marcher2));
+		Place place8=placeRepository.save(new Place("P000A3",marcher2));
+		Place place9=placeRepository.save(new Place("P000A4",marcher2));
+		Place place10=placeRepository.save(new Place("P00A05",marcher2));
 		Place place11= placeRepository.save(new Place("P00001", marcher2));
 		Place place12=placeRepository.save(new Place("P00002",marcher2));
 		Place place13=placeRepository.save(new Place("P00003",marcher3));
@@ -159,6 +159,18 @@ public class SalenApplication implements CommandLineRunner {
 		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","34 00 65 33","fous@gmail.com",mairie2));
 		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie2));
 
+
+		utilisateurInterface.AffecterPlaceToUtilisateur(1,1);
+		utilisateurInterface.AffecterPlaceToUtilisateur(1,2);
+		utilisateurInterface.AffecterPlaceToUtilisateur(1,3);
+		utilisateurInterface.AffecterPlaceToUtilisateur(1,4);
+		utilisateurInterface.AffecterPlaceToUtilisateur(1,5);
+
+		utilisateurInterface.AffecterPlaceToUtilisateur(2,6);
+		utilisateurInterface.AffecterPlaceToUtilisateur(2,7);
+		utilisateurInterface.AffecterPlaceToUtilisateur(2,8);
+		utilisateurInterface.AffecterPlaceToUtilisateur(2,9);
+		utilisateurInterface.AffecterPlaceToUtilisateur(2,10);
 
 
 
