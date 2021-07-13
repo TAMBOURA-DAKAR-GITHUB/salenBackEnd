@@ -22,6 +22,9 @@ public class Marcher implements Serializable {
     @OneToMany(mappedBy = "marcher")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Place> places;
+    @OneToMany(mappedBy = "marcher")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private  Collection<Marchand> marchands;
 
     public Marcher() {
     }
@@ -61,6 +64,14 @@ public class Marcher implements Serializable {
 
     public void setPlaces(Collection<Place> places) {
         this.places = places;
+    }
+
+    public Collection<Marchand> getMarchands() {
+        return marchands;
+    }
+
+    public void setMarchands(Collection<Marchand> marchands) {
+        this.marchands = marchands;
     }
 
     @Override

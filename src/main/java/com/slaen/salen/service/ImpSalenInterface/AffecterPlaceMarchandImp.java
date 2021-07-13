@@ -7,6 +7,7 @@ import com.slaen.salen.repository.*;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -52,18 +53,15 @@ public class AffecterPlaceMarchandImp implements AffecterPlaceMarchandInterface 
     }
 
     @Override
-    public void AffecterPlaceToMarchand(Marchand marchand, Place place) {
-
+    public void AffecterPlaceToMarchand(long idmarchand, long idplace) {
         AffecterPlaceMarchand affecterPlaceMarchand = new AffecterPlaceMarchand();
-        //Place place1= placeRepository.findByNumeroPlace(place.getNumeroPlace());
-        //Marchand marchand1= marchandRepository.findByNomMarchand(marchand.getNomMarchand());
-
+       Marchand marchand= marchandRepository.findByIdMarchand(idmarchand);
+       Place place= placeRepository.findByIdPlace(idplace);
+        place.setSelectedMarchand(true);
         affecterPlaceMarchand.setMarchand(marchand);
         affecterPlaceMarchand.setPlace(place);
+        affecterPlaceMarchand.setDateAffecterPlaceMarchand(new Date());
         affecterPlaceMarchandRepository.save(affecterPlaceMarchand);
-
-
-
     }
 
 

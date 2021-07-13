@@ -147,10 +147,10 @@ public class SalenApplication implements CommandLineRunner {
 		Place place15=placeRepository.save(new Place("P00005",marcher3));
 
 
-		Marchand marchand1= marchandInterface.addMarchand(new Marchand("BABA","BABA","89 76 34 09"));
-		Marchand marchand2=marchandInterface.addMarchand(new Marchand("CISSE","OUMAR","89 76 34 09"));
-		Marchand marchand3=marchandInterface.addMarchand(new Marchand("TRAORE","ABDOU","89 76 34 09"));
-		Marchand marchand4=marchandInterface.addMarchand(new Marchand("DIARRA","MAMADOU","89 76 34 09"));
+		Marchand marchand1= marchandInterface.addMarchand(new Marchand("BABA","BABA","89 76 34 09",marcher1));
+		Marchand marchand2=marchandInterface.addMarchand(new Marchand("CISSE","OUMAR","89 76 34 09",marcher1));
+		Marchand marchand3=marchandInterface.addMarchand(new Marchand("TRAORE","ABDOU","89 76 34 09",marcher2));
+		Marchand marchand4=marchandInterface.addMarchand(new Marchand("DIARRA","MAMADOU","89 76 34 09", marcher3));
 
 
 
@@ -159,26 +159,33 @@ public class SalenApplication implements CommandLineRunner {
 		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","34 00 65 33","fous@gmail.com",mairie2));
 		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie2));
 
+		Utilisateur utilisateur5= utilisateurRepository.save(new Utilisateur("TAMB","Nouhoum","Yirimadio","87 97 65 33","ntam@gmail.com",mairie1));
+		Utilisateur utilisateur6=utilisateurRepository.save(new Utilisateur("DIA","Mamadou","Yirimadio","88 97 00 33","ma@gmail.com",mairie1));
+		Utilisateur utilisateur7=utilisateurRepository.save(new Utilisateur("COUL","Fousseny","Yirimadio","34 00 65 33","fous@gmail.com",mairie1));
+		Utilisateur utilisateur8=utilisateurRepository.save(new Utilisateur("SANG","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie1));
+
+//		utilisateurInterface.AffecterPlaceToUtilisateur(1,1);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(1,2);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(1,3);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(1,4);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(1,5);
+//
+//		utilisateurInterface.AffecterPlaceToUtilisateur(2,6);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(2,7);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(2,8);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(2,9);
+//		utilisateurInterface.AffecterPlaceToUtilisateur(2,10);
 
 		utilisateurInterface.AffecterPlaceToUtilisateur(1,1);
 		utilisateurInterface.AffecterPlaceToUtilisateur(1,2);
 		utilisateurInterface.AffecterPlaceToUtilisateur(1,3);
-		utilisateurInterface.AffecterPlaceToUtilisateur(1,4);
-		utilisateurInterface.AffecterPlaceToUtilisateur(1,5);
+		utilisateurInterface.AffecterPlaceToUtilisateur(2,4);
 
-		utilisateurInterface.AffecterPlaceToUtilisateur(2,6);
-		utilisateurInterface.AffecterPlaceToUtilisateur(2,7);
-		utilisateurInterface.AffecterPlaceToUtilisateur(2,8);
-		utilisateurInterface.AffecterPlaceToUtilisateur(2,9);
-		utilisateurInterface.AffecterPlaceToUtilisateur(2,10);
-
-
-
-		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand1,place1);
-		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand2,place2);
-		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand1,place2);
-		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand3,place4);
-		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand4,place3);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(1,1);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(2,2);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(3,3);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(3,4);
+		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(4,5);
 
 		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place1));
 		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place2));

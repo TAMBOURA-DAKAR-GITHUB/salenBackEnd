@@ -1,9 +1,6 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.entity.AffecterPlaceUtilisateur;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.entity.Utilisateur;
-import com.slaen.salen.service.ImpSalenInterface.TestPlaceToUser;
+import com.slaen.salen.entity.TestPlaceToUser;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +21,9 @@ public class AffecterPlaceUtilisateurController {
     public void PlaceToUtilisateur(@RequestBody TestPlaceToUser testPlaceToUser){
 
         long idutilisateur= (long)  Integer.parseInt(testPlaceToUser.getUtilisateur());
-
+        System.out.println(idutilisateur);
         for (long i : testPlaceToUser.getPlace()) {
+            System.out.println(i);
             affecterPlaceUtilisateurRepository.AffecterPlaceToUtilisateur(idutilisateur , i);
         }
     }

@@ -3,9 +3,6 @@ package com.slaen.salen.service.Saleninterface;
 
 
 import com.slaen.salen.entity.AffecterPlaceUtilisateur;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.entity.Utilisateur;
-import com.slaen.salen.service.ImpSalenInterface.TestPlaceToUser;
 
 import java.util.List;
 

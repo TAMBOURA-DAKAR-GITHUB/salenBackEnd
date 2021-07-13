@@ -1,5 +1,6 @@
 package com.slaen.salen.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -25,19 +26,25 @@ public class Marchand implements Serializable {
     @NotNull
     private String telephoneMarchand;
 
+    @ManyToOne
+    @JoinColumn(name = "idMarcher")
+    private Marcher marcher;
+
     @OneToMany(mappedBy = "marchand")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceMarchand> affecterPlaceMarchands;
     @OneToMany(mappedBy = "marchand")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Payement> payements;
 
     public Marchand() {
     }
 
-    public Marchand(String nomMarchand, String prenomMarchand, String telephoneMarchand) {
+    public Marchand(String nomMarchand, String prenomMarchand, String telephoneMarchand, Marcher marcher) {
         this.nomMarchand = nomMarchand;
         this.prenomMarchand = prenomMarchand;
-        this.dateOccupationMarchand = new Date();
         this.telephoneMarchand = telephoneMarchand;
+        this.marcher = marcher;
     }
 
     public long getIdMarchand() {
@@ -96,6 +103,14 @@ public class Marchand implements Serializable {
         this.payements = payements;
     }
 
+    public Marcher getMarcher() {
+        return marcher;
+    }
+
+    public void setMarcher(Marcher marcher) {
+        this.marcher = marcher;
+    }
+
     @Override
     public String toString() {
         return "Marchand{" +
@@ -104,6 +119,7 @@ public class Marchand implements Serializable {
                 ", prenomMarchand='" + prenomMarchand + '\'' +
                 ", dateOccupationMarchand=" + dateOccupationMarchand +
                 ", telephoneMarchand='" + telephoneMarchand + '\'' +
+                ", marcher=" + marcher +
                 ", affecterPlaceMarchands=" + affecterPlaceMarchands +
                 ", payements=" + payements +
                 '}';

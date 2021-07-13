@@ -13,4 +13,5 @@ public interface AffecterPlaceMarchandRepository extends JpaRepository<AffecterP
 
     //public Page<AffecterPlaceMarchand> listeAffecterMarchand(Pageable pageable);
 
+
 }

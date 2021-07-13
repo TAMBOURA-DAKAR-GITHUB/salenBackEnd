@@ -1,4 +1,4 @@
-package com.slaen.salen.service.ImpSalenInterface;
+package com.slaen.salen.entity;
 
 public class TestPlaceToUser {
 

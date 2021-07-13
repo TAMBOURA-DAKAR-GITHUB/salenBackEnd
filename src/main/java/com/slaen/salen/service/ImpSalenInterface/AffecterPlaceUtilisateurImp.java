@@ -62,15 +62,8 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
         affecterPlaceUtilisateur.setUtilisateur(u);
         affecterPlaceUtilisateur.setPlace(p);
         affecterPlaceUtilisateur.setDateAffecterPlaceUtilisateur(new Date());
-
         // et sauvegarder les donnees .
         affecterPlaceUtilisateurRepository.save(affecterPlaceUtilisateur);
-
-
-
-
-
-
 
 
         }

@@ -40,4 +40,9 @@ public class MarchandImp implements MarchandInterface {
     public void deleteMarchand(long id) {
         marchandRepository.deleteById(id);
     }
+
+    @Override
+    public List<Marchand> listeByMarcher(Long id) {
+        return marchandRepository.findByMarcherIdMarcher(id);
+    }
 }

@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Repository
 public interface MarchandRepository extends JpaRepository<Marchand , Long> {
 
-//    @RequestMapping(path = "/listeMarchandByPage" , method = RequestMethod.GET)
-//    public Page<Marchand> listeMarchandByPage(Pageable pageable);
-//
-//    @RequestMapping(path = "/marchandByTelephone" , method = RequestMethod.GET)
-//    public Marchand findByTelephoneMarchandContains(String telephone);
+     public List<Marchand> findByMarcherIdMarcher(Long id);
+     public  Marchand findByIdMarchand(long idmarchand);
 
     Marchand findByNomMarchand(String nom);
+
 }
 

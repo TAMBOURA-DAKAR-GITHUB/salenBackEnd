@@ -17,7 +17,7 @@ public interface AffecterPlaceMarchandInterface {
     public AffecterPlaceMarchand UpdateAffecterPlaceMarchand(long id , AffecterPlaceMarchand affecterPlaceMarchand);
     public void deleteAffecterPlaceMarchand(long id);
 
-    public void AffecterPlaceToMarchand(Marchand marchand , Place place);
+    public void AffecterPlaceToMarchand(long idmarchand , long idplace);
 
 
 }

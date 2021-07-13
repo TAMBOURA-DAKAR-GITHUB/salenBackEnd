@@ -1,8 +1,7 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.entity.Place;
+import com.slaen.salen.entity.TestPlaceToMarchand;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,12 @@ public class AffecterPlaceMarchandController {
     }
 
     @PostMapping("/placeToMarchand")
-    public void PlaceToMarchand(@RequestBody Place place , @RequestBody Marchand marchand){
-        affecterPlaceMarchandInterface.AffecterPlaceToMarchand(marchand ,place );
+    public void PlaceToMarchand(@RequestBody TestPlaceToMarchand testPlaceToMarchand){
+
+        long idmarchand= (long)  Integer.parseInt(testPlaceToMarchand.getMarchand());
+        for (long i : testPlaceToMarchand.getPlaces()) {
+            affecterPlaceMarchandInterface.AffecterPlaceToMarchand(idmarchand , i);
+        }
+
     }
 }

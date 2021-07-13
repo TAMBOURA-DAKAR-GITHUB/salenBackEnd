@@ -21,8 +21,8 @@ public class AffecterPlaceMarchand implements Serializable {
     public AffecterPlaceMarchand() {
     }
 
-    public AffecterPlaceMarchand(Date dateAffecterPlaceMarchand, Marchand marchand, Place place) {
-        this.dateAffecterPlaceMarchand = dateAffecterPlaceMarchand;
+    public AffecterPlaceMarchand( Marchand marchand, Place place) {
+        this.dateAffecterPlaceMarchand = new Date();
         this.marchand = marchand;
         this.place = place;
     }
