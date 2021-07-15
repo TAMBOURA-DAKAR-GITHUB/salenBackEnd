@@ -16,6 +16,7 @@ public class Marcher implements Serializable {
     private String libelleMarcher;
 
     @ManyToOne
+    @JoinColumn(name = "idMairie")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Mairie mairie;
 

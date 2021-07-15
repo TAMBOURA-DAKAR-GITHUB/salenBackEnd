@@ -1,10 +1,12 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
+import com.slaen.salen.entity.Marchand;
 import com.slaen.salen.entity.Payement;
 import com.slaen.salen.repository.PayementRepository;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,5 +42,15 @@ public class PayementImp implements PayementInterface {
     public void deletePayement(long id) {
         payementRepository.deleteById(id);
 
+    }
+
+    @Override
+    public ArrayList<Object> ListeMarchandByUtilisateur(Long id) {
+        return payementRepository.findByMarchandByUtilisateur(id);
+    }
+
+    @Override
+    public ArrayList<Object> ListePlaceByMarchand(Long id) {
+        return payementRepository.findByPlaceByMarchand(id);
     }
 }

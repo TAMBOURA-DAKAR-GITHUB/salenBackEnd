@@ -2,8 +2,10 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
+import com.slaen.salen.entity.Marchand;
 import com.slaen.salen.entity.Payement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface PayementInterface {
@@ -15,6 +17,12 @@ public interface PayementInterface {
     public void deletePayement(long id);
 
     // la gestion des payements
+
+    // la methode pour afficher la liste des marchands
+    public ArrayList<Object> ListeMarchandByUtilisateur(Long id);
+
+    // la methodes pour afficher la liste des places par marchand
+    public ArrayList<Object> ListePlaceByMarchand(Long id);
 
 
 

@@ -35,11 +35,15 @@ public class Utilisateur implements Serializable {
     private String emailUtilisateur;
 
     @ManyToOne
+    @JoinColumn(name = "idMairie")
     private Mairie mairie;
 
     @OneToMany(mappedBy = "utilisateur")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<AffecterPlaceUtilisateur> affecterPlaceUtilisateurs;
+    @OneToMany(mappedBy = "utilisateur")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Payement> payements;
 
     public Utilisateur() {
     }

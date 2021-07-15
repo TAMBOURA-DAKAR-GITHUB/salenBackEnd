@@ -1,10 +1,12 @@
 package com.slaen.salen.controller;
 
 
+import com.slaen.salen.entity.Marchand;
 import com.slaen.salen.entity.Payement;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -41,5 +43,15 @@ public class PayementController {
     @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable(name = "id") Long id ){
         payementInterface.deletePayement(id);
+    }
+
+    @GetMapping("/listeMarchandByUtilisateur/{id}")
+    public ArrayList<Object> listeMarchandByUtilisateur(@PathVariable(name = "id") Long id){
+        return payementInterface.ListeMarchandByUtilisateur(id);
+    }
+
+    @GetMapping("/listePlaceByMarchand/{id}")
+    public  ArrayList<Object> listePlaceByMarchand(@PathVariable(name = "id") Long id){
+        return payementInterface.ListePlaceByMarchand(id);
     }
 }

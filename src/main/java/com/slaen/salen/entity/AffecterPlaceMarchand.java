@@ -14,8 +14,10 @@ public class AffecterPlaceMarchand implements Serializable {
     private Date dateAffecterPlaceMarchand;
 
     @ManyToOne
+    @JoinColumn(name = "idMarchand")
     private Marchand marchand;
     @ManyToOne
+    @JoinColumn(name = "idPlace")
     private Place place;
 
     public AffecterPlaceMarchand() {
