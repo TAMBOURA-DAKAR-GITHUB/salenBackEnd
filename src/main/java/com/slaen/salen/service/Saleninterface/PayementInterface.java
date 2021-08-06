@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface PayementInterface {
 
-    public Payement addPayement(Payement payement);
+
     public List<Payement> listePayement();
     public Payement listeById(long id);
     public Payement UpdatePayement(Payement payement);
@@ -23,6 +23,8 @@ public interface PayementInterface {
 
     // la methodes pour afficher la liste des places par marchand
     public ArrayList<Object> ListePlaceByMarchand(Long id);
+
+    public void addPayement(long idmarchand , long idutilisateur ,  long idplace,  double montant);
 
 
 

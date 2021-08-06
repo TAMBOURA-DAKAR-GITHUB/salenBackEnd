@@ -2,6 +2,8 @@ package com.slaen.salen.controller;
 
 import com.slaen.salen.entity.Mairie;
 import com.slaen.salen.service.Saleninterface.MairieInterface;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,5 +43,10 @@ public class MairieController {
     @DeleteMapping("/deleteById/{id}")
     public void deleteById(@PathVariable(name = "id") Long id){
         mairieInterface.deleteMairie(id);
+    }
+
+    @ExceptionHandler( Exception.class)
+    public ResponseEntity<String>  exceptionHandler(Exception e){
+        return new ResponseEntity<>(e.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR) ;
     }
 }

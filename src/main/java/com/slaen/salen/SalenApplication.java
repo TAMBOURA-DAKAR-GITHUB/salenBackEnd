@@ -191,10 +191,10 @@ public class SalenApplication implements CommandLineRunner {
 //		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(3,4);
 //		affecterPlaceMarchandInterface.AffecterPlaceToMarchand(4,5);
 
-		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place1, utilisateur1));
-		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place2,utilisateur1));
-		payementInterface.addPayement(new Payement(new Date(),100,0, marchand2,place3,utilisateur1));
-		payementInterface.addPayement(new Payement(new Date(),100,0, marchand4,place5,utilisateur2));
+//		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place1, utilisateur1));
+//		payementInterface.addPayement(new Payement(new Date(),100,0, marchand1,place2,utilisateur1));
+//		payementInterface.addPayement(new Payement(new Date(),100,0, marchand2,place3,utilisateur1));
+//		payementInterface.addPayement(new Payement(new Date(),100,0, marchand4,place5,utilisateur2));
 
 
 
