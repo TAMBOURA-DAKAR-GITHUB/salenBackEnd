@@ -2,7 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.Marchand;
+import com.slaen.salen.model.Marchand;
 
 import java.util.List;
 

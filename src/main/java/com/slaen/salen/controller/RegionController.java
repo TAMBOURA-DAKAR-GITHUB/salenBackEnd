@@ -1,6 +1,6 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.entity.Region;
+import com.slaen.salen.model.Region;
 import com.slaen.salen.service.Saleninterface.RegionInterface;
 import org.springframework.web.bind.annotation.*;
 

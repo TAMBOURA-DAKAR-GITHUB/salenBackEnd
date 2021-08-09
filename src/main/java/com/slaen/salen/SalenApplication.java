@@ -1,14 +1,13 @@
 package com.slaen.salen;
 
-import com.slaen.salen.entity.*;
-import com.slaen.salen.repository.*;
+import com.slaen.salen.model.*;
+import com.slaen.salen.repository.RepositoryData.*;
 import com.slaen.salen.service.Saleninterface.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
-import java.util.Date;
 
 @SpringBootApplication
 public class SalenApplication implements CommandLineRunner {

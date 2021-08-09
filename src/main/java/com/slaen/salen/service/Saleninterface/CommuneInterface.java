@@ -2,7 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.Commune;
+import com.slaen.salen.model.Commune;
 
 import java.util.List;
 

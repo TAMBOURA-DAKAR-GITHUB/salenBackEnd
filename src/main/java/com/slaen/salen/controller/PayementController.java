@@ -1,8 +1,8 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.Payement;
-import com.slaen.salen.entity.PlaceMarchandPayement;
+import com.slaen.salen.model.Payement;
+import com.slaen.salen.dto.PlaceMarchandPayement;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,12 +57,12 @@ public class PayementController {
         long idutilisateur = (long) Integer.parseInt(placeMarchandPayement.getUtilisateur());
         long idmarchand = (long) Integer.parseInt(placeMarchandPayement.getMarchand());
         double montant = placeMarchandPayement.getMontant();
-        System.out.println(montant);
+        //System.out.println(montant);
 
-        System.out.println("utilisateur :"+idutilisateur);
-        System.out.println("marchand "+idmarchand);
-        System.out.println(placeMarchandPayement.getDatePayement());
-        System.out.println(placeMarchandPayement.getMontant());
+        //System.out.println("utilisateur :"+idutilisateur);
+        //System.out.println("marchand "+idmarchand);
+        //System.out.println(placeMarchandPayement.getDatePayement());
+        //System.out.println(placeMarchandPayement.getMontant());
         //System.out.println(placeMarchandPayement.getReste());
 
         for (long place : placeMarchandPayement.getPlaces()) {
@@ -74,7 +74,6 @@ public class PayementController {
                 e.getMessage();
                 System.out.println("Probleme ....");
             }
-            System.out.println(  place);
 
         }
 

@@ -2,8 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.entity.Payement;
+import com.slaen.salen.model.Payement;
 
 import java.util.ArrayList;
 import java.util.List;

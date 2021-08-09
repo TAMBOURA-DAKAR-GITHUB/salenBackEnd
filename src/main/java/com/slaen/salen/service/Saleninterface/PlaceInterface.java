@@ -2,8 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.Marcher;
-import com.slaen.salen.entity.Place;
+import com.slaen.salen.model.Place;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.AffecterPlaceMarchand;
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.repository.*;
+import com.slaen.salen.model.AffecterPlaceMarchand;
+import com.slaen.salen.model.Marchand;
+import com.slaen.salen.model.Place;
+import com.slaen.salen.repository.RepositoryData.*;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
 import org.springframework.stereotype.Service;
 

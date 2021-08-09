@@ -2,7 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.Cercle;
+import com.slaen.salen.model.Cercle;
 
 import java.util.List;
 

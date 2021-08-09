@@ -1,7 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Commune;
-import com.slaen.salen.repository.CommuneRepository;
+import com.slaen.salen.model.Commune;
+import com.slaen.salen.repository.RepositoryData.CommuneRepository;
 import com.slaen.salen.service.Saleninterface.CommuneInterface;
 import org.springframework.stereotype.Service;
 

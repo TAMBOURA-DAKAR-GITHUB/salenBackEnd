@@ -1,7 +1,7 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.Commune;
+import com.slaen.salen.model.Commune;
 import com.slaen.salen.service.Saleninterface.CommuneInterface;
 import org.springframework.web.bind.annotation.*;
 

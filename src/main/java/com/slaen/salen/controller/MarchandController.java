@@ -1,8 +1,7 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.entity.Utilisateur;
+import com.slaen.salen.model.Marchand;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
 import org.springframework.web.bind.annotation.*;
 

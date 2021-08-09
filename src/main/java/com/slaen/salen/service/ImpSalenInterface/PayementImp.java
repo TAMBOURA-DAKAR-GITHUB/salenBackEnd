@@ -1,13 +1,13 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.entity.Payement;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.entity.Utilisateur;
-import com.slaen.salen.repository.MarchandRepository;
-import com.slaen.salen.repository.PayementRepository;
-import com.slaen.salen.repository.PlaceRepository;
-import com.slaen.salen.repository.UtilisateurRepository;
+import com.slaen.salen.model.Marchand;
+import com.slaen.salen.model.Payement;
+import com.slaen.salen.model.Place;
+import com.slaen.salen.model.Utilisateur;
+import com.slaen.salen.repository.RepositoryData.MarchandRepository;
+import com.slaen.salen.repository.RepositoryData.PayementRepository;
+import com.slaen.salen.repository.RepositoryData.PlaceRepository;
+import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,8 @@ public class PayementImp implements PayementInterface {
     private PlaceRepository placeRepository;
     private MarchandRepository marchandRepository;
 
-    public PayementImp(PayementRepository payementRepository, UtilisateurRepository utilisateurRepository, PlaceRepository placeRepository, MarchandRepository marchandRepository) {
+    public PayementImp(PayementRepository payementRepository, UtilisateurRepository utilisateurRepository,
+                       PlaceRepository placeRepository, MarchandRepository marchandRepository) {
         this.payementRepository = payementRepository;
         this.utilisateurRepository = utilisateurRepository;
         this.placeRepository = placeRepository;
@@ -74,7 +75,13 @@ public class PayementImp implements PayementInterface {
         payement.setUtilisateur(utilisateur);
         payement.setDatePayement(new Date());
         payement.setMontantPayement(montant);
-        payementRepository.save(payement) ;
+        try {
+            payementRepository.save(payement) ;
+        }catch (Exception e){
+            e.getMessage();
+            System.out.println("Error de Programme ...");
+        }
+
     }
 
 

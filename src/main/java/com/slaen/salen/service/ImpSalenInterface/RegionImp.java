@@ -1,7 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Region;
-import com.slaen.salen.repository.RegionRepository;
+import com.slaen.salen.model.Region;
+import com.slaen.salen.repository.RepositoryData.RegionRepository;
 import com.slaen.salen.service.Saleninterface.RegionInterface;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.Mairie;
+import com.slaen.salen.model.Mairie;
 
 import java.util.List;
 
@@ -13,4 +13,5 @@ public interface MairieInterface {
     public Mairie listeById(long id);
     public Mairie UpdateMairie( Mairie mairie);
     public void deleteMairie(long id);
+    public abstract boolean isMairieExist(Long id);
 }

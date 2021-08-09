@@ -1,6 +1,7 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.entity.Mairie;
+import com.slaen.salen.Exception.InterceptionException.MairieNotFountException;
+import com.slaen.salen.model.Mairie;
 import com.slaen.salen.service.Saleninterface.MairieInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,34 +20,108 @@ public class MairieController {
         this.mairieInterface = mairieInterface;
     }
 
+//    @PostMapping(value = "/addMairie")
+//    public Mairie addMairie(@RequestBody Mairie mairie){
+//        return mairieInterface.addMairie(mairie);
+//    }
+
     @PostMapping(value = "/addMairie")
-    public Mairie addMairie(@RequestBody Mairie mairie){
-        return mairieInterface.addMairie(mairie);
+    public ResponseEntity<Object> addMairie(@RequestBody Mairie mairie)
+    {
+
+        mairie = mairieInterface.addMairie(mairie);
+        return new ResponseEntity<>(
+                "Mairie "  + mairie.getLibelleMairie()+ " est Creer avec success ",
+                HttpStatus.CREATED);
     }
+
+
+
+//    @GetMapping("/listeMairie")
+//    public List<Mairie> listeMairie(){
+//        return mairieInterface.listeMairie();
+//    }
 
     @GetMapping("/listeMairie")
-    public List<Mairie> listeMairie(){
-        return mairieInterface.listeMairie();
+    public ResponseEntity<Object> listeMairie()
+    {
+        List<Mairie> MairieList = mairieInterface.listeMairie();
+        return new ResponseEntity<>(MairieList, HttpStatus.OK);
     }
+
+
+
+//    @GetMapping("/listeById/{id}")
+//    public  Mairie listeById(@PathVariable(name = "id") Long id){
+//        return mairieInterface.listeById(id);
+//    }
+
 
     @GetMapping("/listeById/{id}")
-    public  Mairie listeById(@PathVariable(name = "id") Long id){
-        return mairieInterface.listeById(id);
+    public ResponseEntity<Object> listeById(@PathVariable("id") Long id)
+    {
+        boolean isMairieExist = mairieInterface.isMairieExist(id);
+        if (isMairieExist)
+        {
+            Mairie mairie =mairieInterface.listeById(id);
+            return new ResponseEntity<>(mairie, HttpStatus.OK);
+        }
+        else
+        {
+            throw new MairieNotFountException();
+        }
+
     }
+
+//    @PutMapping("/updateMairie/{id}")
+//    public Mairie updateMairie(@PathVariable(name = "id") Long id ,@RequestBody Mairie mairie){
+//        mairie.setIdMairie(id);
+//        return mairieInterface.UpdateMairie(mairie);
+//    }
 
     @PutMapping("/updateMairie/{id}")
-    public Mairie updateMairie(@PathVariable(name = "id") Long id ,@RequestBody Mairie mairie){
-        mairie.setIdMairie(id);
-        return mairieInterface.UpdateMairie(mairie);
+    public ResponseEntity<Object> updateMairie(@PathVariable("id") Long id,
+                                                 @RequestBody Mairie mairie)
+    {
+        boolean isMairieExist = mairieInterface.isMairieExist(id);
+        if (isMairieExist)
+        {
+            mairie.setIdMairie(id);
+            mairieInterface.UpdateMairie(mairie);
+            return new ResponseEntity<>("Mairie modifier avec success", HttpStatus.OK);
+        }
+        else
+        {
+            throw new MairieNotFountException();
+        }
+
     }
+
+
+
+//    @DeleteMapping("/deleteById/{id}")
+//    public void deleteById(@PathVariable(name = "id") Long id){
+//        mairieInterface.deleteMairie(id);
+//    }
 
     @DeleteMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable(name = "id") Long id){
-        mairieInterface.deleteMairie(id);
+    public ResponseEntity<Object> deleteById(@PathVariable("id") Long id)
+    {
+        boolean isMairieExist = mairieInterface.isMairieExist(id);
+        if (isMairieExist)
+        {
+            mairieInterface.deleteMairie(id);
+            return new ResponseEntity<>("Mairie Supprimer avec success", HttpStatus.OK);
+        }
+        else
+        {
+            throw new MairieNotFountException();
+        }
+
     }
 
-    @ExceptionHandler( Exception.class)
-    public ResponseEntity<String>  exceptionHandler(Exception e){
-        return new ResponseEntity<>(e.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR) ;
-    }
+//    @ExceptionHandler( Exception.class)
+//    public ResponseEntity<String>  exceptionHandler(Exception e){
+//        return new ResponseEntity<>(e.getMessage() , HttpStatus.INTERNAL_SERVER_ERROR) ;
+//    }
 }

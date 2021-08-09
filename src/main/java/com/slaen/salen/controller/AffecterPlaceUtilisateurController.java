@@ -1,6 +1,6 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.entity.TestPlaceToUser;
+import com.slaen.salen.dto.TestPlaceToUser;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
 import org.springframework.web.bind.annotation.*;
 

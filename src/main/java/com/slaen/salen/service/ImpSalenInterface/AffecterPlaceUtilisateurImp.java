@@ -1,11 +1,11 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.AffecterPlaceUtilisateur;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.entity.Utilisateur;
-import com.slaen.salen.repository.AffecterPlaceUtilisateurRepository;
-import com.slaen.salen.repository.PlaceRepository;
-import com.slaen.salen.repository.UtilisateurRepository;
+import com.slaen.salen.model.AffecterPlaceUtilisateur;
+import com.slaen.salen.model.Place;
+import com.slaen.salen.model.Utilisateur;
+import com.slaen.salen.repository.RepositoryData.AffecterPlaceUtilisateurRepository;
+import com.slaen.salen.repository.RepositoryData.PlaceRepository;
+import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

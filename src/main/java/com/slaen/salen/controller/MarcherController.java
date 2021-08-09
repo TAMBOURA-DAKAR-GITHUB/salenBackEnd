@@ -1,8 +1,7 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.Marcher;
-import com.slaen.salen.entity.Utilisateur;
+import com.slaen.salen.model.Marcher;
 import com.slaen.salen.service.Saleninterface.MarcherInterface;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Cercle;
-import com.slaen.salen.repository.CercleRepository;
+import com.slaen.salen.model.Cercle;
+import com.slaen.salen.repository.RepositoryData.CercleRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
 import org.springframework.stereotype.Service;
 

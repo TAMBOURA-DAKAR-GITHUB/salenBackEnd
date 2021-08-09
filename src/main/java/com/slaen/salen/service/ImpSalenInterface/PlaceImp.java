@@ -1,8 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Marcher;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.repository.PlaceRepository;
+import com.slaen.salen.model.Place;
+import com.slaen.salen.repository.RepositoryData.PlaceRepository;
 import com.slaen.salen.service.Saleninterface.PlaceInterface;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

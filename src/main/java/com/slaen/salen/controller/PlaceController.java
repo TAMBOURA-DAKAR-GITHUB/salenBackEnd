@@ -1,8 +1,7 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.entity.Utilisateur;
+import com.slaen.salen.model.Place;
 import com.slaen.salen.service.Saleninterface.PlaceInterface;
 import org.springframework.web.bind.annotation.*;
 

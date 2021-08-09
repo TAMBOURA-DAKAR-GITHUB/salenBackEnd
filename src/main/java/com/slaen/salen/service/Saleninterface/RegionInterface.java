@@ -1,8 +1,6 @@
 package com.slaen.salen.service.Saleninterface;
 
-import com.slaen.salen.entity.Cercle;
-import com.slaen.salen.entity.Region;
-import org.springframework.data.domain.Page;
+import com.slaen.salen.model.Region;
 
 import java.util.List;
 

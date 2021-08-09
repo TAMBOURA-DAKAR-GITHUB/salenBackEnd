@@ -1,10 +1,8 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.entity.Cercle;
-import com.slaen.salen.entity.Region;
-import com.slaen.salen.repository.RegionRepository;
+import com.slaen.salen.model.Cercle;
+import com.slaen.salen.repository.RepositoryData.RegionRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

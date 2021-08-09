@@ -1,7 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Marcher;
-import com.slaen.salen.repository.MarcherRepository;
+import com.slaen.salen.model.Marcher;
+import com.slaen.salen.repository.RepositoryData.MarcherRepository;
 import com.slaen.salen.service.Saleninterface.MarcherInterface;
 import org.springframework.stereotype.Service;
 

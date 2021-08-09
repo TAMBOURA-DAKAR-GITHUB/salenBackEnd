@@ -1,8 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.AffecterPlaceUtilisateur;
-import com.slaen.salen.entity.Utilisateur;
-import com.slaen.salen.repository.UtilisateurRepository;
+import com.slaen.salen.model.Utilisateur;
+import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
 import org.springframework.stereotype.Service;
 

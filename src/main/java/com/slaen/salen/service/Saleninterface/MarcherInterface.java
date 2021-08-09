@@ -1,8 +1,6 @@
 package com.slaen.salen.service.Saleninterface;
 
-import com.slaen.salen.entity.Marcher;
-import com.slaen.salen.entity.Payement;
-import com.slaen.salen.entity.Utilisateur;
+import com.slaen.salen.model.Marcher;
 
 import java.util.List;
 

@@ -2,10 +2,7 @@ package com.slaen.salen.service.Saleninterface;
 
 
 
-import com.slaen.salen.entity.AffecterPlaceMarchand;
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.entity.Place;
-import com.slaen.salen.entity.Utilisateur;
+import com.slaen.salen.model.AffecterPlaceMarchand;
 
 import java.util.List;
 

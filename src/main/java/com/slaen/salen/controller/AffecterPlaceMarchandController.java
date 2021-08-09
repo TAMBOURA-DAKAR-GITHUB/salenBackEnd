@@ -1,7 +1,7 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.entity.TestPlaceToMarchand;
+import com.slaen.salen.dto.TestPlaceToMarchand;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package com.slaen.salen.service.ImpSalenInterface;
 
-import com.slaen.salen.entity.Marchand;
-import com.slaen.salen.repository.MarchandRepository;
+import com.slaen.salen.model.Marchand;
+import com.slaen.salen.repository.RepositoryData.MarchandRepository;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
 import org.springframework.stereotype.Service;
 
