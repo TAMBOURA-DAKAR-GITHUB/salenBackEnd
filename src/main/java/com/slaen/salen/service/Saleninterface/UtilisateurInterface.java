@@ -17,4 +17,7 @@ public interface UtilisateurInterface {
     public List<Utilisateur> listeByMairie(Long idMairie);
 
     public List<Object> findByAffecterPlaceUtilisateur(Long id);
+
+    // la methode pour verifie si une Utilisateur existe
+    public abstract boolean isUtilisateurExist(Long id);
 }

@@ -15,4 +15,10 @@ public interface MarchandInterface {
     public void deleteMarchand(long id);
 
     public List<Marchand> listeByMarcher(Long id);
+
+    // la methode pour verifie si une Marchand existe
+    public abstract boolean isMarchandExist(Long id);
+    // la methode pour recuperer la liste des marchands qui sont dans un marcher
+    public abstract boolean isMarchandByMarcherExist(Long id);
+
 }

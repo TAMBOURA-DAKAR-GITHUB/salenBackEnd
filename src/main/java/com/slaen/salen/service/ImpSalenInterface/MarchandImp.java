@@ -2,6 +2,7 @@ package com.slaen.salen.service.ImpSalenInterface;
 
 import com.slaen.salen.model.Marchand;
 import com.slaen.salen.repository.RepositoryData.MarchandRepository;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryMarchand;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class MarchandImp implements MarchandInterface {
 
     private MarchandRepository marchandRepository;
+    private VerificationReposotoryMarchand verificationReposotoryMarchand;
 
-    public MarchandImp(MarchandRepository marchandRepository) {
+    public MarchandImp(MarchandRepository marchandRepository, VerificationReposotoryMarchand verificationReposotoryMarchand) {
         this.marchandRepository = marchandRepository;
+        this.verificationReposotoryMarchand = verificationReposotoryMarchand;
     }
 
     @Override
@@ -44,5 +47,15 @@ public class MarchandImp implements MarchandInterface {
     @Override
     public List<Marchand> listeByMarcher(Long id) {
         return marchandRepository.findByMarcherIdMarcher(id);
+    }
+
+    @Override
+    public boolean isMarchandExist(Long id) {
+        return verificationReposotoryMarchand.isMarchandExist(id);
+    }
+
+    @Override
+    public boolean isMarchandByMarcherExist(Long id) {
+        return verificationReposotoryMarchand.isMarchandByMarcherExist(id);
     }
 }

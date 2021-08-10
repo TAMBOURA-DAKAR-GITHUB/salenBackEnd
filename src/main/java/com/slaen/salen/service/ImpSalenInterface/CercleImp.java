@@ -4,6 +4,7 @@ import com.slaen.salen.model.Cercle;
 import com.slaen.salen.repository.RepositoryData.CercleRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
 import org.springframework.stereotype.Service;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryCercle;
 
 import java.util.List;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class CercleImp implements CercleInterface {
 
     private CercleRepository cercleRepository;
+    private VerificationReposotoryCercle verificationReposotoryCercle;
 
-    public CercleImp(CercleRepository cercleRepository) {
+    public CercleImp(CercleRepository cercleRepository, VerificationReposotoryCercle verificationReposotoryCercle) {
         this.cercleRepository = cercleRepository;
+        this.verificationReposotoryCercle = verificationReposotoryCercle;
     }
 
     @Override
@@ -39,5 +42,10 @@ public class CercleImp implements CercleInterface {
     @Override
     public void deleteCercle(long id) {
         cercleRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean isCercleExist(Long id) {
+        return verificationReposotoryCercle.isCercleExist(id);
     }
 }

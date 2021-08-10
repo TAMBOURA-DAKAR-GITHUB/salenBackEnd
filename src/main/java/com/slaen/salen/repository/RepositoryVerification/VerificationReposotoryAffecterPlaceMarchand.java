@@ -11,7 +11,7 @@ public class VerificationReposotoryAffecterPlaceMarchand {
     private JdbcTemplate jdbcTemplate;
 
 
-    public  boolean isMairieExist(Long id)
+    public  boolean isAffecterPlaceMarchandInterfaceExist(Long id)
     {
         String sql = "SELECT COUNT(*) FROM AFFECTER_PLACE_MARCHAND where ID_AFFECTER_PLACE_MARCHAND =?";
 

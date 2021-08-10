@@ -15,4 +15,7 @@ public interface PlaceInterface {
     public void deletePlace(long id);
 
     public List<Place> listeByPlace(Long idPlace);
+
+    // la methode pour verifie si une Place existe
+    public abstract boolean isPlaceExist(Long id);
 }

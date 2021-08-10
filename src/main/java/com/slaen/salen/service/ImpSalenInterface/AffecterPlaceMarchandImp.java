@@ -4,6 +4,7 @@ import com.slaen.salen.model.AffecterPlaceMarchand;
 import com.slaen.salen.model.Marchand;
 import com.slaen.salen.model.Place;
 import com.slaen.salen.repository.RepositoryData.*;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryAffecterPlaceMarchand;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceMarchandInterface;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,16 @@ public class AffecterPlaceMarchandImp implements AffecterPlaceMarchandInterface 
 
     private MarchandRepository marchandRepository;
     private PlaceRepository placeRepository;
+    private VerificationReposotoryAffecterPlaceMarchand verificationReposotoryAffecterPlaceMarchand;
 
 
     public AffecterPlaceMarchandImp(AffecterPlaceMarchandRepository marchandRepository,
-                                    UtilisateurRepository utilisateurRepository, PlaceRepository placeRepository, MarcherRepository marcherRepository, MarchandRepository marchandRepository1, PlaceRepository placeRepository1) {
+                                    UtilisateurRepository utilisateurRepository, PlaceRepository placeRepository, MarcherRepository marcherRepository,
+                                    MarchandRepository marchandRepository1, PlaceRepository placeRepository1, VerificationReposotoryAffecterPlaceMarchand verificationReposotoryAffecterPlaceMarchand) {
         this.affecterPlaceMarchandRepository = marchandRepository;
         this.marchandRepository = marchandRepository1;
         this.placeRepository = placeRepository1;
+        this.verificationReposotoryAffecterPlaceMarchand = verificationReposotoryAffecterPlaceMarchand;
     }
 
     @Override
@@ -62,6 +66,11 @@ public class AffecterPlaceMarchandImp implements AffecterPlaceMarchandInterface 
         affecterPlaceMarchand.setPlace(place);
         affecterPlaceMarchand.setDateAffecterPlaceMarchand(new Date());
         affecterPlaceMarchandRepository.save(affecterPlaceMarchand);
+    }
+
+    @Override
+    public boolean isAffecterPlaceMarchandInterfaceExist(Long id) {
+        return verificationReposotoryAffecterPlaceMarchand.isAffecterPlaceMarchandInterfaceExist(id);
     }
 
 

@@ -11,7 +11,7 @@ public class VerificationReposotoryCercle {
     private JdbcTemplate jdbcTemplate;
 
 
-    public  boolean isMairieExist(Long id)
+    public  boolean isCercleExist(Long id)
     {
         String sql = "SELECT COUNT(*) FROM CERCLE where ID_CERCLE =?";
 

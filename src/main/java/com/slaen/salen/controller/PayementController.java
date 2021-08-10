@@ -57,13 +57,6 @@ public class PayementController {
         long idutilisateur = (long) Integer.parseInt(placeMarchandPayement.getUtilisateur());
         long idmarchand = (long) Integer.parseInt(placeMarchandPayement.getMarchand());
         double montant = placeMarchandPayement.getMontant();
-        //System.out.println(montant);
-
-        //System.out.println("utilisateur :"+idutilisateur);
-        //System.out.println("marchand "+idmarchand);
-        //System.out.println(placeMarchandPayement.getDatePayement());
-        //System.out.println(placeMarchandPayement.getMontant());
-        //System.out.println(placeMarchandPayement.getReste());
 
         for (long place : placeMarchandPayement.getPlaces()) {
             System.out.println("=========place ==========");

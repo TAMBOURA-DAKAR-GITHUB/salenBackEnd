@@ -2,6 +2,7 @@ package com.slaen.salen.service.ImpSalenInterface;
 
 import com.slaen.salen.model.Utilisateur;
 import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryUtilisateur;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class UtilisateurImp implements UtilisateurInterface {
 
     private UtilisateurRepository utilisateurRepository;
+    private VerificationReposotoryUtilisateur verificationReposotoryUtilisateur;
 
-    public UtilisateurImp(UtilisateurRepository utilisateurRepository) {
+    public UtilisateurImp(UtilisateurRepository utilisateurRepository, VerificationReposotoryUtilisateur verificationReposotoryUtilisateur) {
         this.utilisateurRepository = utilisateurRepository;
+        this.verificationReposotoryUtilisateur = verificationReposotoryUtilisateur;
     }
 
     @Override
@@ -49,6 +52,11 @@ public class UtilisateurImp implements UtilisateurInterface {
    @Override
     public List<Object> findByAffecterPlaceUtilisateur(Long id) {
         return utilisateurRepository.findByAffecterplaceutilisateurUtilisateurr(id);
+    }
+
+    @Override
+    public boolean isUtilisateurExist(Long id) {
+        return verificationReposotoryUtilisateur.isUtilisateurExist(id);
     }
 
 

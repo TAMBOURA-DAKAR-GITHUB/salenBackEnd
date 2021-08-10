@@ -11,7 +11,7 @@ public class VerificationReposotoryUtilisateur {
     private JdbcTemplate jdbcTemplate;
 
 
-    public  boolean isMairieExist(Long id)
+    public  boolean isUtilisateurExist(Long id)
     {
         String sql = "SELECT COUNT(*) FROM UTILISATEUR where ID_UTILISATEUR =?";
 

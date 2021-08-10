@@ -13,4 +13,7 @@ public interface CommuneInterface {
     public Commune listeById(long id);
     public Commune UpdateCommune(Commune commune);
     public void deleteCommune(long id);
+
+    // la methode pour verifie si une Commune existe
+    public abstract boolean isCommuneExist(Long id);
 }

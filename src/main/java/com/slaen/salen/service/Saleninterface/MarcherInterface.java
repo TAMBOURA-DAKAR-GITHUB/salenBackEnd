@@ -13,4 +13,11 @@ public interface MarcherInterface {
     public void deleteMarcher(long id);
 
     public List<Marcher> listeByMairie(Long idMairie);
+
+    // la methode pour verifie si une Marcher existe
+    public abstract boolean isMarcherExist(Long id);
+    // la methode pour verifier s'il des marcher dans la mairie
+    public abstract boolean isMarcherByMairieExist(Long id);
+
+
 }

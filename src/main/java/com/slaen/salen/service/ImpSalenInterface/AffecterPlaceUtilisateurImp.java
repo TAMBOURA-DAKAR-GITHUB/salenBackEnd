@@ -9,6 +9,7 @@ import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryAffecterPlaceUtilisateur;
 
 import java.util.Date;
 import java.util.List;
@@ -19,12 +20,14 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
     private AffecterPlaceUtilisateurRepository affecterPlaceUtilisateurRepository;
     private PlaceRepository placeRepository;
     private UtilisateurRepository utilisateurRepository;
+    private VerificationReposotoryAffecterPlaceUtilisateur verificationReposotoryAffecterPlaceUtilisateur;
 
     public AffecterPlaceUtilisateurImp(AffecterPlaceUtilisateurRepository affecterPlaceUtilisateurRepository,
-                                       PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository) {
+                                       PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, VerificationReposotoryAffecterPlaceUtilisateur verificationReposotoryAffecterPlaceUtilisateur) {
         this.affecterPlaceUtilisateurRepository = affecterPlaceUtilisateurRepository;
         this.placeRepository = placeRepository;
         this.utilisateurRepository = utilisateurRepository;
+        this.verificationReposotoryAffecterPlaceUtilisateur = verificationReposotoryAffecterPlaceUtilisateur;
     }
 
     @Override
@@ -67,5 +70,10 @@ public class AffecterPlaceUtilisateurImp implements AffecterPlaceUtilisateurInte
 
 
         }
+
+    @Override
+    public boolean isAffecterPlaceUtilisateurInterfaceExist(Long id) {
+        return verificationReposotoryAffecterPlaceUtilisateur.isAffecterPlaceUtilisateurInterfaceExist(id);
+    }
 
 }

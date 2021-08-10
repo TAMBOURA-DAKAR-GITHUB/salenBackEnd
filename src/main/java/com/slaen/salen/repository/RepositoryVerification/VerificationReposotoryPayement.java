@@ -11,7 +11,7 @@ public class VerificationReposotoryPayement {
     private JdbcTemplate jdbcTemplate;
 
 
-    public  boolean isMairieExist(Long id)
+    public  boolean isPayementExist(Long id)
     {
         String sql = "SELECT COUNT(*) FROM PAYEMENT where ID_PAYEMENT =?";
 

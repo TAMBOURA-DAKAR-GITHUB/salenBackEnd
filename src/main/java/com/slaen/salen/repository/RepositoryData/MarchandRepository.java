@@ -15,4 +15,3 @@ public interface MarchandRepository extends JpaRepository<Marchand , Long> {
     Marchand findByNomMarchand(String nom);
 
 }
-

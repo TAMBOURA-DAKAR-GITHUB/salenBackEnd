@@ -2,6 +2,7 @@ package com.slaen.salen.service.ImpSalenInterface;
 
 import com.slaen.salen.model.Commune;
 import com.slaen.salen.repository.RepositoryData.CommuneRepository;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryCommune;
 import com.slaen.salen.service.Saleninterface.CommuneInterface;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.List;
 public class CommuneImp implements CommuneInterface {
 
     private CommuneRepository communeRepository;
+    private VerificationReposotoryCommune verificationReposotoryCommune;
 
-    public CommuneImp(CommuneRepository communeRepository) {
+    public CommuneImp(CommuneRepository communeRepository, VerificationReposotoryCommune verificationReposotoryCommune) {
         this.communeRepository = communeRepository;
+        this.verificationReposotoryCommune = verificationReposotoryCommune;
     }
 
     @Override
@@ -39,5 +42,10 @@ public class CommuneImp implements CommuneInterface {
     @Override
     public void deleteCommune(long id) {
         communeRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean isCommuneExist(Long id) {
+        return verificationReposotoryCommune.isCommuneExist(id);
     }
 }

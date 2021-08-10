@@ -19,6 +19,9 @@ public interface  AffecterPlaceUtilisateurInterface {
 
     public void AffecterPlaceToUtilisateur(long ids , long id);
 
+    // la methode pour verifie si une affectation existe
+    public abstract boolean isAffecterPlaceUtilisateurInterfaceExist(Long id);
+
 
 
 

@@ -16,5 +16,8 @@ public interface AffecterPlaceMarchandInterface {
 
     public void AffecterPlaceToMarchand(long idmarchand , long idplace);
 
+    // la methode pour verifie si une affectation existe
+    public abstract boolean isAffecterPlaceMarchandInterfaceExist(Long id);
+
 
 }

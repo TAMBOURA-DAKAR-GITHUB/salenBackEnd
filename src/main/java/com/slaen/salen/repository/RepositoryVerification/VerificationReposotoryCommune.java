@@ -11,7 +11,7 @@ public class VerificationReposotoryCommune {
     private JdbcTemplate jdbcTemplate;
 
 
-    public  boolean isMairieExist(Long id)
+    public  boolean isCommuneExist(Long id)
     {
         String sql = "SELECT COUNT(*) FROM COMMUNE where ID_COMMUNE =?";
 

@@ -8,6 +8,7 @@ import com.slaen.salen.repository.RepositoryData.MarchandRepository;
 import com.slaen.salen.repository.RepositoryData.PayementRepository;
 import com.slaen.salen.repository.RepositoryData.PlaceRepository;
 import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
+import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryPayement;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +23,15 @@ public class PayementImp implements PayementInterface {
     private UtilisateurRepository utilisateurRepository;
     private PlaceRepository placeRepository;
     private MarchandRepository marchandRepository;
+    private VerificationReposotoryPayement verificationReposotoryPayement;
 
     public PayementImp(PayementRepository payementRepository, UtilisateurRepository utilisateurRepository,
-                       PlaceRepository placeRepository, MarchandRepository marchandRepository) {
+                       PlaceRepository placeRepository, MarchandRepository marchandRepository, VerificationReposotoryPayement verificationReposotoryPayement) {
         this.payementRepository = payementRepository;
         this.utilisateurRepository = utilisateurRepository;
         this.placeRepository = placeRepository;
         this.marchandRepository = marchandRepository;
+        this.verificationReposotoryPayement = verificationReposotoryPayement;
     }
 
 
@@ -82,6 +85,11 @@ public class PayementImp implements PayementInterface {
             System.out.println("Error de Programme ...");
         }
 
+    }
+
+    @Override
+    public boolean isPayementExist(Long id) {
+        return verificationReposotoryPayement.isPayementExist(id);
     }
 
 

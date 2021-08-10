@@ -11,7 +11,7 @@ public class VerificationReposotoryRegion {
     private JdbcTemplate jdbcTemplate;
 
 
-    public  boolean isMairieExist(Long id)
+    public  boolean isRegionExist(Long id)
     {
         String sql = "SELECT COUNT(*) FROM REGION where ID_REGION =?";
 

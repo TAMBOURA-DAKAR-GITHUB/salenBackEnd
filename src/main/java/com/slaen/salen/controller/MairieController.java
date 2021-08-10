@@ -28,8 +28,11 @@ public class MairieController {
     @PostMapping(value = "/addMairie")
     public ResponseEntity<Object> addMairie(@RequestBody Mairie mairie)
     {
-
-        mairie = mairieInterface.addMairie(mairie);
+        try {
+            mairie = mairieInterface.addMairie(mairie);
+        }catch (Exception e){
+            throw new MairieNotFountException();
+        }
         return new ResponseEntity<>(
                 "Mairie "  + mairie.getLibelleMairie()+ " est Creer avec success ",
                 HttpStatus.CREATED);
@@ -45,7 +48,13 @@ public class MairieController {
     @GetMapping("/listeMairie")
     public ResponseEntity<Object> listeMairie()
     {
-        List<Mairie> MairieList = mairieInterface.listeMairie();
+        List<Mairie> MairieList =null;
+        try {
+             MairieList = mairieInterface.listeMairie();
+        }catch (Exception e){
+            throw new MairieNotFountException();
+        }
+
         return new ResponseEntity<>(MairieList, HttpStatus.OK);
     }
 
@@ -63,7 +72,12 @@ public class MairieController {
         boolean isMairieExist = mairieInterface.isMairieExist(id);
         if (isMairieExist)
         {
-            Mairie mairie =mairieInterface.listeById(id);
+            Mairie mairie =null;
+            try {
+                 mairie =mairieInterface.listeById(id);
+            }catch (Exception e){
+                throw new MairieNotFountException();
+            }
             return new ResponseEntity<>(mairie, HttpStatus.OK);
         }
         else
@@ -86,8 +100,13 @@ public class MairieController {
         boolean isMairieExist = mairieInterface.isMairieExist(id);
         if (isMairieExist)
         {
-            mairie.setIdMairie(id);
-            mairieInterface.UpdateMairie(mairie);
+            try {
+                mairie.setIdMairie(id);
+                mairieInterface.UpdateMairie(mairie);
+            }catch (Exception e){
+                throw new MairieNotFountException();
+            }
+
             return new ResponseEntity<>("Mairie modifier avec success", HttpStatus.OK);
         }
         else
@@ -110,7 +129,12 @@ public class MairieController {
         boolean isMairieExist = mairieInterface.isMairieExist(id);
         if (isMairieExist)
         {
-            mairieInterface.deleteMairie(id);
+            try {
+                mairieInterface.deleteMairie(id);
+            }catch (Exception e){
+                throw new MairieNotFountException();
+            }
+
             return new ResponseEntity<>("Mairie Supprimer avec success", HttpStatus.OK);
         }
         else

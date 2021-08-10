@@ -25,6 +25,9 @@ public interface PayementInterface {
 
     public void addPayement(long idmarchand , long idutilisateur ,  long idplace,  double montant);
 
+    // la methode pour verifie si une Payement existe
+    public abstract boolean isPayementExist(Long id);
+
 
 
 }

@@ -1,8 +1,13 @@
 package com.slaen.salen.controller;
 
+import com.slaen.salen.Exception.InterceptionException.CercleNotFountException;
+import com.slaen.salen.Exception.InterceptionException.MairieNotFountException;
 import com.slaen.salen.model.Cercle;
+import com.slaen.salen.model.Mairie;
 import com.slaen.salen.repository.RepositoryData.RegionRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,36 +18,130 @@ import java.util.List;
 public class CercleController {
 
     private CercleInterface cercleInterface;
-    private RegionRepository regionRepository;
 
-    public CercleController(CercleInterface cercleInterface, RegionRepository regionRepository) {
+
+    public CercleController(CercleInterface cercleInterface) {
         this.cercleInterface = cercleInterface;
-        this.regionRepository = regionRepository;
+
     }
+
+//    @PostMapping(value = "/addCercle")
+//    public Cercle addCercle(@RequestBody Cercle cercle){
+//        return cercleInterface.addCercle(cercle);
+//    }
 
     @PostMapping(value = "/addCercle")
-    public Cercle addCercle(@RequestBody Cercle cercle){
-        return cercleInterface.addCercle(cercle);
+    public ResponseEntity<Object> addCercle(@RequestBody Cercle cercle)
+    {
+        try {
+            cercle = cercleInterface.addCercle(cercle);
+        }catch (Exception e){
+            throw new CercleNotFountException();
+        }
+
+        return new ResponseEntity<>(
+                "Cercle "  + cercle.getLibelleCercle() +"est Creer avec success ",
+                HttpStatus.CREATED);
     }
+
+
+//    @GetMapping("/listeCercle")
+//    public List<Cercle> listeCercle(){
+//        return cercleInterface.listeCercle();
+//    }
 
     @GetMapping("/listeCercle")
-    public List<Cercle> listeCercle(){
-        return cercleInterface.listeCercle();
+    public ResponseEntity<Object> listeCercle()
+    {
+        List<Cercle> CercleList =null;
+        try {
+             CercleList = cercleInterface.listeCercle();
+        }catch (Exception e){
+            throw new CercleNotFountException();
+        }
+
+        return new ResponseEntity<>(CercleList, HttpStatus.OK);
     }
+
+
+//    @GetMapping("/listeById/{id}")
+//    public  Cercle listeById(@PathVariable(name = "id") Long id){
+//        return cercleInterface.listeById(id);
+//    }
 
     @GetMapping("/listeById/{id}")
-    public  Cercle listeById(@PathVariable(name = "id") Long id){
-        return cercleInterface.listeById(id);
+    public ResponseEntity<Object> listeById(@PathVariable(name = "id") Long id)
+    {
+        boolean isCercleExist = cercleInterface.isCercleExist(id);
+        if (isCercleExist)
+        {
+            Cercle cercle = null;
+            try {
+                 cercle =cercleInterface.listeById(id);
+            }catch (Exception e){
+                throw new CercleNotFountException();
+            }
+
+            return new ResponseEntity<>(cercle, HttpStatus.OK);
+        }
+        else
+        {
+            throw new CercleNotFountException();
+        }
+
     }
+//
+//    @PutMapping("/updateCercle/{id}")
+//    public Cercle updateCercle(@PathVariable(name = "id") Long id ,@RequestBody Cercle cercle){
+//        cercle.setIdCercle(id);
+//        return cercleInterface.UpdateCercle(cercle);
+//    }
 
     @PutMapping("/updateCercle/{id}")
-    public Cercle updateCercle(@PathVariable(name = "id") Long id ,@RequestBody Cercle cercle){
-        cercle.setIdCercle(id);
-        return cercleInterface.UpdateCercle(cercle);
+    public ResponseEntity<Object> updateCercle(@PathVariable(name = "id") Long id ,@RequestBody Cercle cercle)
+    {
+        boolean isCercleExist = cercleInterface.isCercleExist(id);
+        if (isCercleExist)
+        {
+            try {
+                cercle.setIdCercle(id);
+                cercleInterface.UpdateCercle(cercle);
+            }catch (Exception e){
+                throw new CercleNotFountException();
+            }
+            return new ResponseEntity<>("Cercle modifier avec success", HttpStatus.OK);
+        }
+        else
+        {
+            throw new CercleNotFountException();
+        }
+
     }
 
+//
+//    @DeleteMapping("/deleteById/{id}")
+//    public void deleteById(@PathVariable(name = "id") Long id){
+//        cercleInterface.deleteCercle(id);
+//    }
+
     @DeleteMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable(name = "id") Long id){
-        cercleInterface.deleteCercle(id);
+    public ResponseEntity<Object> deleteById(@PathVariable(name = "id") Long id)
+    {
+        boolean isCercleExist = cercleInterface.isCercleExist(id);
+        if (isCercleExist)
+        {
+            try {
+                cercleInterface.deleteCercle(id);
+            }catch (Exception e){
+                throw  new CercleNotFountException();
+            }
+
+            return new ResponseEntity<>("Cercle Supprimer avec success", HttpStatus.OK);
+        }
+        else
+        {
+            throw new CercleNotFountException();
+        }
+
     }
 }
