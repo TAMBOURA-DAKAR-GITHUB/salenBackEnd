@@ -78,18 +78,23 @@ public class PayementImp implements PayementInterface {
         payement.setUtilisateur(utilisateur);
         payement.setDatePayement(new Date());
         payement.setMontantPayement(montant);
-        try {
-            payementRepository.save(payement) ;
-        }catch (Exception e){
-            e.getMessage();
-            System.out.println("Error de Programme ...");
-        }
+        payementRepository.save(payement) ;
 
     }
 
     @Override
     public boolean isPayementExist(Long id) {
         return verificationReposotoryPayement.isPayementExist(id);
+    }
+
+    @Override
+    public boolean isMarchandByUtilisateurExist(Long id) {
+        return verificationReposotoryPayement.isMarchandByUtilisateurExist(id);
+    }
+
+    @Override
+    public boolean isPlaceByMarchandExist(Long id) {
+        return verificationReposotoryPayement.isPlaceByMarchandExist(id);
     }
 
 

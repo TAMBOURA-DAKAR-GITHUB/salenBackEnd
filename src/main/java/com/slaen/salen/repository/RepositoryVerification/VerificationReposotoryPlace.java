@@ -22,4 +22,18 @@ public class VerificationReposotoryPlace {
         }
         return false;
     }
+
+    public  boolean isPlaceByMarcherExist(Long id)
+
+    {
+        String sql = "SELECT COUNT(*) FROM PLACE where PLACE.ID_MARCHER= ?";
+
+        int count = jdbcTemplate.queryForObject(sql, new Object[] { id }, Integer.class);
+        System.out.println(count);
+        if (count >= 1)
+        {
+            return true;
+        }
+        return false;
+    }
 }

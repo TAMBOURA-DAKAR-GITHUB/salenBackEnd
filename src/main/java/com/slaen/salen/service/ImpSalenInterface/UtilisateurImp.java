@@ -51,12 +51,22 @@ public class UtilisateurImp implements UtilisateurInterface {
 
    @Override
     public List<Object> findByAffecterPlaceUtilisateur(Long id) {
-        return utilisateurRepository.findByAffecterplaceutilisateurUtilisateurr(id);
+        return utilisateurRepository.findByAffecterplaceutilisateurUtilisateur(id);
     }
 
     @Override
     public boolean isUtilisateurExist(Long id) {
         return verificationReposotoryUtilisateur.isUtilisateurExist(id);
+    }
+
+    @Override
+    public boolean isUtilisateurByMairieExist(Long id) {
+        return verificationReposotoryUtilisateur.isUtilisateurByMairieExist(id);
+    }
+
+    @Override
+    public boolean isPlaceUtilisateurExist(Long id) {
+        return verificationReposotoryUtilisateur.isPlaceUtilisateurExist(id);
     }
 
 

@@ -20,4 +20,7 @@ public interface UtilisateurInterface {
 
     // la methode pour verifie si une Utilisateur existe
     public abstract boolean isUtilisateurExist(Long id);
+
+    public abstract boolean isUtilisateurByMairieExist(Long id);
+    public abstract boolean isPlaceUtilisateurExist(Long id);
 }

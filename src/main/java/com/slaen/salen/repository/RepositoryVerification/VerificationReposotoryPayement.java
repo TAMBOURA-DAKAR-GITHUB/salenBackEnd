@@ -22,4 +22,30 @@ public class VerificationReposotoryPayement {
         }
         return false;
     }
+
+
+    public  boolean isMarchandByUtilisateurExist(Long id)
+    {
+        String sql = "SELECT COUNT(*) FROM AFFECTER_PLACE_MARCHAND where AFFECTER_PLACE_MARCHAND.ID_MARCHAND =?";
+
+        int count = jdbcTemplate.queryForObject(sql, new Object[] { id }, Integer.class);
+        if (count >= 1)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    public  boolean isPlaceByMarchandExist(Long id)
+    {
+        String sql = "SELECT COUNT(*) FROM AFFECTER_PLACE_MARCHAND where AFFECTER_PLACE_MARCHAND.ID_PLACE =?";
+
+        int count = jdbcTemplate.queryForObject(sql, new Object[] { id }, Integer.class);
+        if (count >= 1)
+        {
+            return true;
+        }
+        return false;
+    }
 }

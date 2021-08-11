@@ -28,6 +28,9 @@ public interface PayementInterface {
     // la methode pour verifie si une Payement existe
     public abstract boolean isPayementExist(Long id);
 
+    public abstract boolean isMarchandByUtilisateurExist(Long id);
+    public abstract boolean isPlaceByMarchandExist(Long id);
+
 
 
 }

@@ -1,10 +1,7 @@
 package com.slaen.salen.controller;
 
 import com.slaen.salen.Exception.InterceptionException.CercleNotFountException;
-import com.slaen.salen.Exception.InterceptionException.MairieNotFountException;
 import com.slaen.salen.model.Cercle;
-import com.slaen.salen.model.Mairie;
-import com.slaen.salen.repository.RepositoryData.RegionRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

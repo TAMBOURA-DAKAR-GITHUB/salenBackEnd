@@ -18,4 +18,6 @@ public interface PlaceInterface {
 
     // la methode pour verifie si une Place existe
     public abstract boolean isPlaceExist(Long id);
+    public abstract boolean isPlaceByMarcherExist(Long id);
+
 }

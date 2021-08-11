@@ -54,4 +54,9 @@ public class PlaceImp implements PlaceInterface {
     public boolean isPlaceExist(Long id) {
         return verificationReposotoryPlace.isPlaceExist(id);
     }
+
+    @Override
+    public boolean isPlaceByMarcherExist(Long id) {
+        return verificationReposotoryPlace.isPlaceByMarcherExist(id);
+    }
 }
