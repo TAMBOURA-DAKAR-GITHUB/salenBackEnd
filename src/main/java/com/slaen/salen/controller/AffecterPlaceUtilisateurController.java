@@ -45,7 +45,7 @@ public class AffecterPlaceUtilisateurController {
             throw new AffecterPlaceUtilisateurNotFountException();
         }
         return new ResponseEntity<>(
-                "Le Affectation effectue avec success ",
+                "Affectation effectue avec success ",
                 HttpStatus.CREATED);
 
     }
