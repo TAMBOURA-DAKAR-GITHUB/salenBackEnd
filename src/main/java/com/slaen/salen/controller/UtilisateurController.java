@@ -3,8 +3,6 @@ package com.slaen.salen.controller;
 
 
 import com.slaen.salen.Exception.InterceptionException.*;
-import com.slaen.salen.model.Place;
-import com.slaen.salen.model.Region;
 import com.slaen.salen.model.Utilisateur;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
 import org.springframework.http.HttpStatus;
@@ -40,7 +38,7 @@ public class UtilisateurController {
         }
 
         return new ResponseEntity<>(
-                "Utilisateur "  + utilisateur.getCodeUtilisateur() +"est Creer avec success ",
+                "Utilisateur "  + utilisateur.getCodeUtilisateur() +" est Creer avec success ",
                 HttpStatus.CREATED);
     }
 

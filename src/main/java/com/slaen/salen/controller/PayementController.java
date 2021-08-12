@@ -2,8 +2,10 @@ package com.slaen.salen.controller;
 
 
 import com.slaen.salen.Exception.InterceptionException.MarchandNotFountException;
+import com.slaen.salen.Exception.InterceptionException.MarcherNotFountException;
 import com.slaen.salen.Exception.InterceptionException.PayementNotFountException;
 import com.slaen.salen.Exception.InterceptionException.PlaceNotFountException;
+import com.slaen.salen.model.Marcher;
 import com.slaen.salen.model.Payement;
 import com.slaen.salen.dto.PlaceMarchandPayement;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
@@ -185,24 +187,38 @@ public class PayementController {
 
     }
 
+//    @PostMapping(value = "/addPayement")
+//    public void addPayement(@RequestBody PlaceMarchandPayement placeMarchandPayement) {
+//        long idutilisateur = (long) Integer.parseInt(placeMarchandPayement.getUtilisateur());
+//        long idmarchand = (long) Integer.parseInt(placeMarchandPayement.getMarchand());
+//        double montant = placeMarchandPayement.getMontant();
+//
+//        for (long place : placeMarchandPayement.getPlaces()) {
+//                payementInterface.addPayement(idutilisateur,idmarchand,place,montant);
+//            }
+//
+//        }
+
+
     @PostMapping(value = "/addPayement")
-    public void addPayement(@RequestBody PlaceMarchandPayement placeMarchandPayement) {
-        long idutilisateur = (long) Integer.parseInt(placeMarchandPayement.getUtilisateur());
-        long idmarchand = (long) Integer.parseInt(placeMarchandPayement.getMarchand());
-        double montant = placeMarchandPayement.getMontant();
+    public ResponseEntity<Object> addPayement(@RequestBody PlaceMarchandPayement placeMarchandPayement)
+    {
+        try {
+            long idutilisateur = (long) Integer.parseInt(placeMarchandPayement.getUtilisateur());
+            long idmarchand = (long) Integer.parseInt(placeMarchandPayement.getMarchand());
+            double montant = placeMarchandPayement.getMontant();
 
-        for (long place : placeMarchandPayement.getPlaces()) {
-            System.out.println("=========place ==========");
-            try {
-                payementInterface.addPayement(idutilisateur,idmarchand,place,montant);
-            }catch (Exception e){
-
-                e.getMessage();
-                System.out.println("Probleme ....");
+            for (long place : placeMarchandPayement.getPlaces()) {
+               payementInterface.addPayement(idutilisateur,idmarchand,place,montant);
             }
 
+        }catch (Exception e){
+            throw new PayementNotFountException();
         }
-
+        return new ResponseEntity<>(
+                "Le Payement effectue avec success ",
+                HttpStatus.CREATED);
 
     }
+
 }

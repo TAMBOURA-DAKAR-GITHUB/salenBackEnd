@@ -13,6 +13,6 @@ public class AffecterPlaceMarchandException {
     @ExceptionHandler(value = AffecterPlaceMarchandNotFountException.class)
     public ResponseEntity<Object> exception(AffecterPlaceMarchandNotFountException exception)
     {
-        return new ResponseEntity<>("impossible ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

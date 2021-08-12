@@ -17,6 +17,6 @@ public class MairieException
     @ExceptionHandler(value = MairieNotFountException.class)
     public ResponseEntity<Object> exception(MairieNotFountException exception)
     {
-        return new ResponseEntity<>("Pas de Mairie Disponible ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

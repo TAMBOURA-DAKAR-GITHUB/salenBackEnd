@@ -14,6 +14,6 @@ public class RegionException {
     @ExceptionHandler(value = RegionNotFountException.class)
     public ResponseEntity<Object> exception(RegionNotFountException exception)
     {
-        return new ResponseEntity<>("pas de Region trouver ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

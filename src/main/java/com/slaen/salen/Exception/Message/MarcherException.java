@@ -14,6 +14,6 @@ public class MarcherException {
     @ExceptionHandler(value = MarcherNotFountException.class)
     public ResponseEntity<Object> exception(MarcherNotFountException exception)
     {
-        return new ResponseEntity<>("pas de Marcher trouver ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

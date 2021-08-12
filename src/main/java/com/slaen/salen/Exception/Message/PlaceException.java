@@ -14,6 +14,6 @@ public class PlaceException {
     @ExceptionHandler(value = PlaceNotFountException.class)
     public ResponseEntity<Object> exception(PlaceNotFountException exception)
     {
-        return new ResponseEntity<>("pas de place trouver ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

@@ -1,9 +1,8 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.Exception.InterceptionException.CommuneNotFountException;
+
 import com.slaen.salen.Exception.InterceptionException.MarchandNotFountException;
-import com.slaen.salen.model.Commune;
 import com.slaen.salen.model.Marchand;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
 import org.springframework.http.HttpStatus;
@@ -38,7 +37,7 @@ public class MarchandController {
         }
 
         return new ResponseEntity<>(
-                "Marchand "  + marchand.getTelephoneMarchand() +"est Creer avec success ",
+                "Marchand "  + marchand.getTelephoneMarchand() +" est Creer avec success ",
                 HttpStatus.CREATED);
     }
 

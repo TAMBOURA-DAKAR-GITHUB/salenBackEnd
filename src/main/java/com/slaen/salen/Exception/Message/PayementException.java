@@ -14,6 +14,6 @@ public class PayementException {
     @ExceptionHandler(value = PayementNotFountException.class)
     public ResponseEntity<Object> exception(PayementNotFountException exception)
     {
-        return new ResponseEntity<>("pas de Payement trouver ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

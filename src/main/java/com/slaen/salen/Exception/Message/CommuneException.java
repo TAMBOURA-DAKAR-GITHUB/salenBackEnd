@@ -14,6 +14,6 @@ public class CommuneException {
     @ExceptionHandler(value = CommuneNotFountException.class)
     public ResponseEntity<Object> exception(CommuneNotFountException exception)
     {
-        return new ResponseEntity<>("pas de Commune trouver ....", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
