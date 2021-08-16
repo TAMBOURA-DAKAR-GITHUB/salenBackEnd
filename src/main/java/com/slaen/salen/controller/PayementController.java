@@ -1,11 +1,9 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.Exception.InterceptionException.MarchandNotFountException;
-import com.slaen.salen.Exception.InterceptionException.MarcherNotFountException;
-import com.slaen.salen.Exception.InterceptionException.PayementNotFountException;
-import com.slaen.salen.Exception.InterceptionException.PlaceNotFountException;
-import com.slaen.salen.model.Marcher;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.MarchandNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PayementNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PlaceNotFountException;
 import com.slaen.salen.model.Payement;
 import com.slaen.salen.dto.PlaceMarchandPayement;
 import com.slaen.salen.service.Saleninterface.PayementInterface;

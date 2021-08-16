@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface CercleRepository extends JpaRepository<Cercle , Long> {
 
     //public Page<Cercle> listeCercleByPage(Pageable pageable);
+    public  Cercle findBylibelleCercle(String libelleCercle);
 }

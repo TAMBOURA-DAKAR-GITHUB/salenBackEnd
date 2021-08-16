@@ -1,7 +1,8 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.Exception.InterceptionException.RegionNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionExistance.RegionExistetException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.RegionNotFountException;
 import com.slaen.salen.model.Region;
 import com.slaen.salen.service.Saleninterface.RegionInterface;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,13 @@ public class RegionController {
     @PostMapping(value = "/addRegion")
     public ResponseEntity<Object> addRegion(@RequestBody Region region)
     {
+        String regionexiste= region.getLibelleRegion();
+        if(regionexiste != null && !"".equals(regionexiste)){
+            Region region1 = regionInterface.VerificationRegion(regionexiste);
+            if(region1 != null){
+                throw new RegionExistetException();
+            }
+        }
         try {
             region = regionInterface.addRegion(region);
         }catch (Exception e){

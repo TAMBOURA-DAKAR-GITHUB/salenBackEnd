@@ -2,7 +2,7 @@ package com.slaen.salen.controller;
 
 
 
-import com.slaen.salen.Exception.InterceptionException.MarchandNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.MarchandNotFountException;
 import com.slaen.salen.model.Marchand;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
 import org.springframework.http.HttpStatus;

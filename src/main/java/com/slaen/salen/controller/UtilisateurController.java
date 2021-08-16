@@ -2,7 +2,12 @@ package com.slaen.salen.controller;
 
 
 
-import com.slaen.salen.Exception.InterceptionException.*;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionExistance.MairieExistetException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionExistance.UtilisateurExistetException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.MarcherNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PlaceNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.RegionNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.UtilisateurNotFountException;
 import com.slaen.salen.model.Utilisateur;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
 import org.springframework.http.HttpStatus;
@@ -31,6 +36,14 @@ public class UtilisateurController {
     @PostMapping(value = "/addUtilisateur")
     public ResponseEntity<Object> addUtilisateur(@RequestBody Utilisateur utilisateur)
     {
+        String utilisateur1Existe = utilisateur.getTelephoneUtilisateur();
+        if(utilisateur1Existe != null && !"".equals(utilisateur1Existe)){
+
+           Utilisateur utilisateur1= utilisateurInterface.VerificationUtilisateur(utilisateur1Existe);
+           if(utilisateur1 != null){
+               throw new UtilisateurExistetException();
+           }
+        }
         try {
             utilisateur = utilisateurInterface.addUtilisateur(utilisateur);
         }catch (Exception e){

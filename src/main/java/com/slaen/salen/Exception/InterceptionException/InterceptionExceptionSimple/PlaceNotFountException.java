@@ -1,4 +1,4 @@
-package com.slaen.salen.Exception.InterceptionException;
+package com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple;
 
 public class PlaceNotFountException extends RuntimeException{
 

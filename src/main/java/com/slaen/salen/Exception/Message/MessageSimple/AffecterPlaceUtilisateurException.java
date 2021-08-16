@@ -1,7 +1,7 @@
-package com.slaen.salen.Exception.Message;
+package com.slaen.salen.Exception.Message.MessageSimple;
 
 
-import com.slaen.salen.Exception.InterceptionException.AffecterPlaceUtilisateurNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.AffecterPlaceUtilisateurNotFountException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,7 +1,8 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.Exception.InterceptionException.CommuneNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionExistance.CommuneExistetException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.CommuneNotFountException;
 import com.slaen.salen.model.Commune;
 import com.slaen.salen.service.Saleninterface.CommuneInterface;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,13 @@ public class CommuneController {
     @PostMapping(value = "/addCommune")
     public ResponseEntity<Object> addCommune(@RequestBody Commune commune)
     {
+        String communeexiste = commune.getLibelleCommune();
+        if(communeexiste != null && !"".equals(communeexiste)){
+            Commune commune1 = communeInterface.VerificationCommune(communeexiste);
+            if(commune1 != null){
+                throw new CommuneExistetException();
+            }
+        }
         try {
             commune = communeInterface.addCommune(commune);
         }catch (Exception e){

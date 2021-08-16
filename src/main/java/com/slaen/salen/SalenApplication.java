@@ -153,18 +153,18 @@ public class SalenApplication implements CommandLineRunner {
 
 
 
-		Utilisateur utilisateur1= utilisateurRepository.save(new Utilisateur("TAMBOURA","Nouhoum","Yirimadio","87 97 65 33","ntam@gmail.com",mairie2));
-		Utilisateur utilisateur2=utilisateurRepository.save(new Utilisateur("DIARRA","Mamadou","Yirimadio","88 97 00 33","ma@gmail.com",mairie2));
-		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","34 00 65 33","fous@gmail.com",mairie2));
-		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie2));
+		Utilisateur utilisateur1= utilisateurRepository.save(new Utilisateur("TAMBOURA","Nouhoum","Yirimadio","87 957 65 33","ntam@gmail.com",mairie2));
+		Utilisateur utilisateur2=utilisateurRepository.save(new Utilisateur("DIARRA","Mamadou","Yirimadio","88 97 010 33","ma@gmail.com",mairie2));
+		Utilisateur utilisateur3=utilisateurRepository.save(new Utilisateur("COULIBALY","Fousseny","Yirimadio","34 00 65 331","fous@gmail.com",mairie2));
+		Utilisateur utilisateur4=utilisateurRepository.save(new Utilisateur("SANOGO","Al","Yirimadio","90 97 65 233","al@gmail.com",mairie2));
 
-		Utilisateur utilisateur5= utilisateurRepository.save(new Utilisateur("TAMB","Nouhoum","Yirimadio","87 97 65 33","ntam@gmail.com",mairie1));
-		Utilisateur utilisateur6=utilisateurRepository.save(new Utilisateur("DIA","Mamadou","Yirimadio","88 97 00 33","ma@gmail.com",mairie1));
-		Utilisateur utilisateur7=utilisateurRepository.save(new Utilisateur("COUL","Fousseny","Yirimadio","34 00 65 33","fous@gmail.com",mairie1));
-		Utilisateur utilisateur8=utilisateurRepository.save(new Utilisateur("SANG","Al","Yirimadio","90 97 65 33","al@gmail.com",mairie1));
+		Utilisateur utilisateur5= utilisateurRepository.save(new Utilisateur("TAMB","Nouhoum","Yirimadio","87 97 632 33","ntam@gmail.com",mairie1));
+		Utilisateur utilisateur6=utilisateurRepository.save(new Utilisateur("DIA","Mamadou","Yirimadio","88 97 010 33","ma@gmail.com",mairie1));
+		Utilisateur utilisateur7=utilisateurRepository.save(new Utilisateur("COUL","Fousseny","Yirimadio","34 040 65 33","fous@gmail.com",mairie1));
+		Utilisateur utilisateur8=utilisateurRepository.save(new Utilisateur("SANG","Al","Yirimadio","90 97 65 313","al@gmail.com",mairie1));
 
 
-		Utilisateur utilisateur9=utilisateurRepository.save(new Utilisateur("test","test","test","00 00 00 00","test@gmail.com",mairie1));
+		Utilisateur utilisateur9=utilisateurRepository.save(new Utilisateur("test","test","test","00 00 004 00","test@gmail.com",mairie1));
 
 //		utilisateurInterface.AffecterPlaceToUtilisateur(1,1);
 //		utilisateurInterface.AffecterPlaceToUtilisateur(1,2);

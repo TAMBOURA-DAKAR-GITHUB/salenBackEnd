@@ -1,19 +1,18 @@
-package com.slaen.salen.Exception.Message;
+package com.slaen.salen.Exception.Message.MessageSimple;
 
 
-import com.slaen.salen.Exception.InterceptionException.CercleNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PlaceNotFountException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
-
 @ControllerAdvice
-public class CercleException {
+public class PlaceException {
 
-    @ExceptionHandler(value = CercleNotFountException.class)
-    public ResponseEntity<Object> exception(CercleNotFountException exception)
+    @ExceptionHandler(value = PlaceNotFountException.class)
+    public ResponseEntity<Object> exception(PlaceNotFountException exception)
     {
         return new ResponseEntity<>("erreur d'execution de la requete ....", HttpStatus.INTERNAL_SERVER_ERROR);
     }

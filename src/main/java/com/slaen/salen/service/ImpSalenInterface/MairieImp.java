@@ -53,6 +53,11 @@ public class MairieImp implements MairieInterface {
       return   verificationReposotoryMairie.isMairieExist(id);
     }
 
+    @Override
+    public Mairie VerificationMairie(String libelleMairie) {
+        return  mairieRepository.findBylibelleMairie(libelleMairie);
+    }
+
 
 //    @ExceptionHandler(Exception.class)
 //    public ResponseEntity<String> exceptionHandler(Exception e){

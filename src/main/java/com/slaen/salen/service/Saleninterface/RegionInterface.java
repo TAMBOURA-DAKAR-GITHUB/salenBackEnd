@@ -14,5 +14,6 @@ public interface RegionInterface {
 
     // la methode pour verifie si une Region existe
     public abstract boolean isRegionExist(Long id);
+    public Region VerificationRegion(String libelleRegion);
 
 }

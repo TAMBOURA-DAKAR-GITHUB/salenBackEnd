@@ -16,4 +16,5 @@ public interface CommuneInterface {
 
     // la methode pour verifie si une Commune existe
     public abstract boolean isCommuneExist(Long id);
+    public Commune VerificationCommune(String libelleCommune);
 }

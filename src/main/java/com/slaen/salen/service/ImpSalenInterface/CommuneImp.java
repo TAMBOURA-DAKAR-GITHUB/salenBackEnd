@@ -48,4 +48,9 @@ public class CommuneImp implements CommuneInterface {
     public boolean isCommuneExist(Long id) {
         return verificationReposotoryCommune.isCommuneExist(id);
     }
+
+    @Override
+    public Commune VerificationCommune(String libelleCommune) {
+        return communeRepository.findBylibelleCommune(libelleCommune);
+    }
 }

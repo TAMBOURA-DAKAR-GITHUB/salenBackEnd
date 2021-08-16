@@ -69,5 +69,10 @@ public class UtilisateurImp implements UtilisateurInterface {
         return verificationReposotoryUtilisateur.isPlaceUtilisateurExist(id);
     }
 
+    @Override
+    public Utilisateur VerificationUtilisateur(String telephoneUtilisateur) {
+        return utilisateurRepository.findBytelephoneUtilisateur(telephoneUtilisateur);
+    }
+
 
 }

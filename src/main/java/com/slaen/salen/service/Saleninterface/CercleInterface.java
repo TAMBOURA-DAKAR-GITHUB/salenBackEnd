@@ -16,4 +16,5 @@ public interface CercleInterface {
 
     // la methode pour verifie si une cercle existe
     public abstract boolean isCercleExist(Long id);
+    public Cercle VerificationCercle(String libelleCercle);
 }

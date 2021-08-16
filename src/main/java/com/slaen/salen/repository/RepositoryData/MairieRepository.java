@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MairieRepository extends JpaRepository<Mairie , Long> {
 
+    public Mairie findBylibelleMairie(String libelleMairie);
+
 
 }

@@ -23,4 +23,6 @@ public interface UtilisateurInterface {
 
     public abstract boolean isUtilisateurByMairieExist(Long id);
     public abstract boolean isPlaceUtilisateurExist(Long id);
+
+    public Utilisateur VerificationUtilisateur(String telephoneUtilisateur);
 }

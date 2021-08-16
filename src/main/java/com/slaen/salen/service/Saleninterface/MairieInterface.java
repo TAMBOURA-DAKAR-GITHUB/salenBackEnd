@@ -14,4 +14,5 @@ public interface MairieInterface {
     public Mairie UpdateMairie( Mairie mairie);
     public void deleteMairie(long id);
     public abstract boolean isMairieExist(Long id);
+    public Mairie VerificationMairie(String libelleMairie);
 }

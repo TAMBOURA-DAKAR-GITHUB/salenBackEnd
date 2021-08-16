@@ -1,6 +1,6 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.Exception.InterceptionException.AffecterPlaceUtilisateurNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.AffecterPlaceUtilisateurNotFountException;
 import com.slaen.salen.dto.TestPlaceToUser;
 import com.slaen.salen.service.Saleninterface.AffecterPlaceUtilisateurInterface;
 import org.springframework.http.HttpStatus;

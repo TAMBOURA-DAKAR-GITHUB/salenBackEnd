@@ -48,4 +48,9 @@ public class CercleImp implements CercleInterface {
     public boolean isCercleExist(Long id) {
         return verificationReposotoryCercle.isCercleExist(id);
     }
+
+    @Override
+    public Cercle VerificationCercle(String libelleCercle) {
+        return cercleRepository.findBylibelleCercle(libelleCercle);
+    }
 }

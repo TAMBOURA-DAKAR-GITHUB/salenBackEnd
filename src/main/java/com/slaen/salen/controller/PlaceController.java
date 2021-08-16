@@ -1,9 +1,8 @@
 package com.slaen.salen.controller;
 
 
-import com.slaen.salen.Exception.InterceptionException.MarchandNotFountException;
-import com.slaen.salen.Exception.InterceptionException.MarcherNotFountException;
-import com.slaen.salen.Exception.InterceptionException.PlaceNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.MarcherNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PlaceNotFountException;
 import com.slaen.salen.model.Place;
 import com.slaen.salen.service.Saleninterface.PlaceInterface;
 import org.springframework.http.HttpStatus;

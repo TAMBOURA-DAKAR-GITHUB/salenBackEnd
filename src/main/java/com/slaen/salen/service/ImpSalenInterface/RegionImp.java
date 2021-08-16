@@ -50,4 +50,9 @@ public class RegionImp implements RegionInterface {
     public boolean isRegionExist(Long id) {
         return verificationReposotoryRegion.isRegionExist(id);
     }
+
+    @Override
+    public Region VerificationRegion(String libelleRegion) {
+        return regionRepository.findBylibelleRegion(libelleRegion);
+    }
 }

@@ -1,6 +1,7 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.Exception.InterceptionException.MairieNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionExistance.MairieExistetException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.MairieNotFountException;
 import com.slaen.salen.model.Mairie;
 import com.slaen.salen.service.Saleninterface.MairieInterface;
 import org.springframework.http.HttpStatus;
@@ -26,8 +27,14 @@ public class MairieController {
 //    }
 
     @PostMapping(value = "/addMairie")
-    public ResponseEntity<Object> addMairie(@RequestBody Mairie mairie)
-    {
+    public ResponseEntity<Object> addMairie(@RequestBody Mairie mairie)  {
+        String mairieexiste = mairie.getLibelleMairie();
+        if(mairieexiste != null && !"".equals(mairieexiste)){
+            Mairie mairie1= mairieInterface.VerificationMairie(mairieexiste);
+                if(mairie1 != null){
+                    throw new MairieExistetException();
+                }
+        }
         try {
             mairie = mairieInterface.addMairie(mairie);
         }catch (Exception e){

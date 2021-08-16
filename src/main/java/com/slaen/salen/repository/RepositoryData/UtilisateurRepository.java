@@ -25,4 +25,6 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur , Long>
            "and MARCHER.id_Marcher= place.id_Marcher\n" +
            "and UTILISATEUR.ID_UTILISATEUR= :id " , nativeQuery = true)
     public List<Object> findByAffecterplaceutilisateurUtilisateur(@Param("id") Long id);
+
+   public Utilisateur findBytelephoneUtilisateur(String telephoneUtilisateur);
 }

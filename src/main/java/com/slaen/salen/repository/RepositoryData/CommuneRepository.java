@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface CommuneRepository extends JpaRepository<Commune , Long> {
 
    // public Page<Commune> listeCommuneByPage(Pageable pageable);
+
+    public Commune findBylibelleCommune(String libelleCommune);
 }

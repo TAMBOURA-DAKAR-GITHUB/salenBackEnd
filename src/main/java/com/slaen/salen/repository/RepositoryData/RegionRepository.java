@@ -10,5 +10,7 @@ public interface RegionRepository extends JpaRepository<Region , Long> {
 
     //public Page<Region> listeRegionByPage(Pageable pageable);
 
+    public Region findBylibelleRegion(String libelleRegion);
+
 
 }

@@ -1,6 +1,7 @@
 package com.slaen.salen.controller;
 
-import com.slaen.salen.Exception.InterceptionException.CercleNotFountException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionExistance.CercleExistetException;
+import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.CercleNotFountException;
 import com.slaen.salen.model.Cercle;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,13 @@ public class CercleController {
     @PostMapping(value = "/addCercle")
     public ResponseEntity<Object> addCercle(@RequestBody Cercle cercle)
     {
+        String cercleexiste = cercle.getLibelleCercle();
+        if(cercleexiste !=null && !"".equals(cercleexiste)){
+            Cercle cercle1 = cercleInterface.VerificationCercle(cercleexiste);
+            if(cercle1 != null){
+                throw new CercleExistetException();
+            }
+        }
         try {
             cercle = cercleInterface.addCercle(cercle);
         }catch (Exception e){
