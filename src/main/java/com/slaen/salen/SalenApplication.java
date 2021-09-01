@@ -2,11 +2,18 @@ package com.slaen.salen;
 
 import com.slaen.salen.model.*;
 import com.slaen.salen.repository.RepositoryData.*;
+import com.slaen.salen.security.entites.Role;
+import com.slaen.salen.security.entites.User;
+import com.slaen.salen.security.repository.RoleRepository;
+import com.slaen.salen.security.repository.UserRepository;
+import com.slaen.salen.security.service.AddRoleToUserService;
 import com.slaen.salen.service.Saleninterface.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+
+import java.util.ArrayList;
 
 
 @SpringBootApplication
@@ -26,10 +33,15 @@ public class SalenApplication implements CommandLineRunner {
 	private MarchandInterface marchandInterface;
 	private PayementInterface payementInterface;
 
+	//==========================================security================================================================
+	private UserRepository userRepository;
+	private RoleRepository roleRepository;
+	private AddRoleToUserService addRoleToUserService;
+
 
 	public SalenApplication(RegionRepository regionRepository, CercleRepository cercleRepository,
 							RepositoryRestConfiguration repositoryRestConfiguration, CommuneRepository communeRepository,
-							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository, UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface, MarchandInterface marchandInterface, PayementInterface payementInterface) {
+							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository, UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface, MarchandInterface marchandInterface, PayementInterface payementInterface, UserRepository userRepository, RoleRepository roleRepository, AddRoleToUserService addRoleToUserService) {
 		this.regionRepository = regionRepository;
 		this.cercleRepository = cercleRepository;
 		this.repositoryRestConfiguration = repositoryRestConfiguration;
@@ -42,6 +54,9 @@ public class SalenApplication implements CommandLineRunner {
 		this.affecterPlaceMarchandInterface = affecterPlaceMarchandInterface;
 		this.marchandInterface = marchandInterface;
 		this.payementInterface = payementInterface;
+		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
+		this.addRoleToUserService = addRoleToUserService;
 	}
 
 	public static void main(String[] args) {
@@ -51,6 +66,17 @@ public class SalenApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		repositoryRestConfiguration.exposeIdsFor(Region.class , Cercle.class);
+
+
+		roleRepository.save(new Role("ADMIN"));
+		 roleRepository.save(new Role("USER"));
+		userRepository.save(new User("user1","1234", true, new  ArrayList()));
+		userRepository.save(new User("user2","1234", true,  new ArrayList<>()));
+
+		addRoleToUserService.addRolesUser("user1", "ADMIN");
+		addRoleToUserService.addRolesUser("user2", "USER");
+		addRoleToUserService.addRolesUser("user1", "USER");
+
 
 		Region region1= regionRepository.save(new Region("Kayes"));
 		Region region2= regionRepository.save(new Region("Koulikoro"));
