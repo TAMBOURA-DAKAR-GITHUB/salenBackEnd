@@ -37,7 +37,7 @@ public class MarcherController {
             throw new MarcherNotFountException();
         }
         return new ResponseEntity<>(
-                "Marcher "  + marcher.getLibelleMarcher() +" est Creer avec success ",
+                marcher,
                 HttpStatus.CREATED);
 
     }
@@ -110,7 +110,7 @@ public class MarcherController {
                 throw new MarcherNotFountException();
             }
 
-            return new ResponseEntity<>("Marcher modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(marcher, HttpStatus.OK);
         }
         else
         {

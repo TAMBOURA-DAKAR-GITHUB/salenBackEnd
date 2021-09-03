@@ -4,6 +4,7 @@ import com.slaen.salen.model.Commune;
 import com.slaen.salen.repository.RepositoryData.CommuneRepository;
 import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryCommune;
 import com.slaen.salen.service.Saleninterface.CommuneInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class CommuneImp implements CommuneInterface {
 
     @Override
     public List<Commune> listeCommune() {
-        return communeRepository.findAll();
+        return communeRepository.findAll(Sort.by("idCommune").descending());
     }
 
     @Override

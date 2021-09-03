@@ -44,7 +44,7 @@ public class CommuneController {
         }
 
         return new ResponseEntity<>(
-                "Commune "  + commune.getLibelleCommune() +"est Creer avec success ",
+                commune,
                 HttpStatus.CREATED);
     }
 
@@ -112,7 +112,7 @@ public class CommuneController {
             }catch (Exception e){
                 throw new CommuneNotFountException();
             }
-            return new ResponseEntity<>("Commune modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(commune, HttpStatus.OK);
         }
         else
         {

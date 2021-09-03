@@ -3,6 +3,7 @@ package com.slaen.salen.service.ImpSalenInterface;
 import com.slaen.salen.model.Cercle;
 import com.slaen.salen.repository.RepositoryData.CercleRepository;
 import com.slaen.salen.service.Saleninterface.CercleInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryCercle;
 
@@ -26,7 +27,7 @@ public class CercleImp implements CercleInterface {
 
     @Override
     public List<Cercle> listeCercle() {
-        return cercleRepository.findAll();
+        return cercleRepository.findAll(Sort.by("idCercle").descending());
     }
 
     @Override

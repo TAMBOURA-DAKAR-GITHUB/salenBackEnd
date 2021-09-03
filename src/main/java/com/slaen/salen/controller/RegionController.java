@@ -44,7 +44,7 @@ public class RegionController {
         }
 
         return new ResponseEntity<>(
-                "Region "  + region.getLibelleRegion() +" est Creer avec success ",
+                region,
                 HttpStatus.CREATED);
     }
 
@@ -111,7 +111,7 @@ public class RegionController {
             }catch (Exception e){
                 throw new RegionNotFountException();
             }
-            return new ResponseEntity<>("Region modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(region, HttpStatus.OK);
         }
         else
         {
@@ -122,6 +122,7 @@ public class RegionController {
 
 //    @DeleteMapping(value = "deleteById/{id}")
 //    public void deleteById( @PathVariable(name = "id") Long id){
+//        regionInterface.deleteIdRegionToCercle(id);
 //        regionInterface.deleteRegion(id);
 //    }
 

@@ -4,6 +4,7 @@ import com.slaen.salen.model.Marcher;
 import com.slaen.salen.repository.RepositoryData.MarcherRepository;
 import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryMarcher;
 import com.slaen.salen.service.Saleninterface.MarcherInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class MarcherImp implements MarcherInterface {
 
     @Override
     public List<Marcher> listeMarcher() {
-        return marcherRepository.findAll();
+        return marcherRepository.findAll(Sort.by("idMarcher").descending());
     }
 
     @Override

@@ -37,7 +37,7 @@ public class PlaceController {
             throw new PlaceNotFountException();
         }
         return new ResponseEntity<>(
-                "Place "  + place.getNumeroPlace() +" est Creer avec success ",
+                place,
                 HttpStatus.CREATED);
 
     }
@@ -109,7 +109,7 @@ public class PlaceController {
                 throw new PlaceNotFountException();
             }
 
-            return new ResponseEntity<>("Place modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(place, HttpStatus.OK);
         }
         else
         {

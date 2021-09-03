@@ -4,6 +4,7 @@ import com.slaen.salen.model.Region;
 import com.slaen.salen.repository.RepositoryData.RegionRepository;
 import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryRegion;
 import com.slaen.salen.service.Saleninterface.RegionInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class RegionImp implements RegionInterface {
 
     @Override
     public List<Region> listeRegions() {
-        return regionRepository.findAll();
+        return regionRepository.findAll(Sort.by("idRegion").descending());
     }
 
     @Override
@@ -55,4 +56,6 @@ public class RegionImp implements RegionInterface {
     public Region VerificationRegion(String libelleRegion) {
         return regionRepository.findBylibelleRegion(libelleRegion);
     }
+
+
 }

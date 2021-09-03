@@ -18,7 +18,8 @@ public class Commune implements Serializable {
     private String libelleCommune;
 
     @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "idCercle")
     private Cercle cercle;
 
     @OneToMany(mappedBy = "commune")

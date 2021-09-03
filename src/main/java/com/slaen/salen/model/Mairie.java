@@ -24,6 +24,7 @@ public class Mairie implements Serializable {
     private String typeMairie;
 
     @ManyToOne
+    @JoinColumn(name = "idCommune")
     private Commune commune;
 
     @OneToMany(mappedBy = "mairie")

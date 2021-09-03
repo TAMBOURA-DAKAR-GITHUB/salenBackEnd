@@ -37,7 +37,7 @@ public class MarchandController {
         }
 
         return new ResponseEntity<>(
-                "Marchand "  + marchand.getTelephoneMarchand() +" est Creer avec success ",
+                marchand,
                 HttpStatus.CREATED);
     }
 
@@ -110,7 +110,7 @@ public class MarchandController {
                 throw new MarchandNotFountException();
             }
 
-            return new ResponseEntity<>("Marchand modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(marchand, HttpStatus.OK);
         }
         else
         {

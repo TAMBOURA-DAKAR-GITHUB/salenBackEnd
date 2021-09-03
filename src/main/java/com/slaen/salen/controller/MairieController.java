@@ -41,7 +41,7 @@ public class MairieController {
             throw new MairieNotFountException();
         }
         return new ResponseEntity<>(
-                "Mairie "  + mairie.getLibelleMairie()+ " est Creer avec success ",
+                mairie,
                 HttpStatus.CREATED);
     }
 
@@ -114,7 +114,7 @@ public class MairieController {
                 throw new MairieNotFountException();
             }
 
-            return new ResponseEntity<>("Mairie modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(mairie, HttpStatus.OK);
         }
         else
         {

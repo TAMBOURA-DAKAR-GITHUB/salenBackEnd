@@ -45,7 +45,7 @@ public class CercleController {
         }
 
         return new ResponseEntity<>(
-                "Cercle "  + cercle.getLibelleCercle() +"est Creer avec success ",
+                cercle,
                 HttpStatus.CREATED);
     }
 
@@ -114,7 +114,7 @@ public class CercleController {
             }catch (Exception e){
                 throw new CercleNotFountException();
             }
-            return new ResponseEntity<>("Cercle modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(cercle, HttpStatus.OK);
         }
         else
         {

@@ -51,7 +51,7 @@ public class UtilisateurController {
         }
 
         return new ResponseEntity<>(
-                "Utilisateur "  + utilisateur.getCodeUtilisateur() +" est Creer avec success ",
+                utilisateur,
                 HttpStatus.CREATED);
     }
 
@@ -119,7 +119,7 @@ public class UtilisateurController {
             }catch (Exception e){
                 throw new UtilisateurNotFountException();
             }
-            return new ResponseEntity<>("Utilisateur modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(utilisateur, HttpStatus.OK);
         }
         else
         {

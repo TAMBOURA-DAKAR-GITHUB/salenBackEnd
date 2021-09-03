@@ -1,5 +1,6 @@
 package com.slaen.salen.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -17,8 +18,10 @@ public class Cercle implements Serializable {
     private String libelleCercle;
 
     @OneToMany(mappedBy = "cercle")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Commune> communes;
     @ManyToOne
+    @JoinColumn(name = "idRegion")
     private Region region;
 
     public Cercle() {

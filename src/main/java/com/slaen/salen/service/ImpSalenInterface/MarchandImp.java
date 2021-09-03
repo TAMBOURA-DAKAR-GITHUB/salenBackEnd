@@ -4,6 +4,7 @@ import com.slaen.salen.model.Marchand;
 import com.slaen.salen.repository.RepositoryData.MarchandRepository;
 import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryMarchand;
 import com.slaen.salen.service.Saleninterface.MarchandInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class MarchandImp implements MarchandInterface {
 
     @Override
     public List<Marchand> listeMarchand() {
-        return marchandRepository.findAll();
+        return marchandRepository.findAll(Sort.by("idMarchand").descending());
     }
 
     @Override

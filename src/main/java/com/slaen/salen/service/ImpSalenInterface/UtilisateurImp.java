@@ -4,6 +4,7 @@ import com.slaen.salen.model.Utilisateur;
 import com.slaen.salen.repository.RepositoryData.UtilisateurRepository;
 import com.slaen.salen.repository.RepositoryVerification.VerificationReposotoryUtilisateur;
 import com.slaen.salen.service.Saleninterface.UtilisateurInterface;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class UtilisateurImp implements UtilisateurInterface {
 
     @Override
     public List<Utilisateur> listeUtilisateur() {
-        return utilisateurRepository.findAll();
+        return utilisateurRepository.findAll(Sort.by("idUtilisateur").descending());
     }
 
     @Override

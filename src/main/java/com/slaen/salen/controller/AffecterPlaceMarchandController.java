@@ -41,7 +41,7 @@ public class AffecterPlaceMarchandController {
             throw new AffecterPlaceMarchandNotFountException();
         }
         return new ResponseEntity<>(
-                " Affectation effectue avec success ",
+                testPlaceToMarchand,
                 HttpStatus.CREATED);
 
     }

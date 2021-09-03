@@ -92,7 +92,7 @@ public class PayementController {
                 throw new PayementNotFountException();
             }
 
-            return new ResponseEntity<>("Payement modifier avec success", HttpStatus.OK);
+            return new ResponseEntity<>(payement, HttpStatus.OK);
         }
         else
         {
@@ -214,7 +214,7 @@ public class PayementController {
             throw new PayementNotFountException();
         }
         return new ResponseEntity<>(
-                "Le Payement effectue avec success ",
+                placeMarchandPayement,
                 HttpStatus.CREATED);
 
     }
