@@ -29,16 +29,17 @@ public class Payement implements Serializable {
     @JoinColumn(name = "idUtilisateur")
     private Utilisateur utilisateur;
 
+
     public Payement() {
     }
 
-    public Payement(Date datePayement, double montantPayement, double resteApaye, Marchand marchand , Place place , Utilisateur utilisateur) {
+    public Payement(Date datePayement, double montantPayement, double resteApaye, Marchand marchand, Place place, Utilisateur utilisateur) {
         this.datePayement = datePayement;
         this.montantPayement = montantPayement;
         this.resteApaye = resteApaye;
         this.marchand = marchand;
-        this.place=place;
-        this.utilisateur=utilisateur;
+        this.place = place;
+        this.utilisateur = utilisateur;
 
         /* les information sur le marchand est recupere l'orsqu'on appui sur la liste des marchands
         idm pour les places. Ensuite le champs payement est afficher pour faire le payement

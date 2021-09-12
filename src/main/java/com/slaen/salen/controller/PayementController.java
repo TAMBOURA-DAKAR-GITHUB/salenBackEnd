@@ -4,6 +4,7 @@ package com.slaen.salen.controller;
 import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.MarchandNotFountException;
 import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PayementNotFountException;
 import com.slaen.salen.Exception.InterceptionException.InterceptionExceptionSimple.PlaceNotFountException;
+import com.slaen.salen.dto.Facture;
 import com.slaen.salen.model.Payement;
 import com.slaen.salen.dto.PlaceMarchandPayement;
 import com.slaen.salen.service.Saleninterface.PayementInterface;
@@ -12,12 +13,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/payement")
 public class PayementController {
+
 
     private PayementInterface payementInterface;
 
@@ -50,22 +57,18 @@ public class PayementController {
 //    }
 
     @GetMapping("/listeById/{id}")
-    public ResponseEntity<Object> listeById(@PathVariable(name = "id") Long id)
-    {
+    public ResponseEntity<Object> listeById(@PathVariable(name = "id") Long id) {
         boolean isPayementExist = payementInterface.isPayementExist(id);
-        if (isPayementExist)
-        {
-            Payement payement=null;
+        if (isPayementExist) {
+            Payement payement = null;
             try {
                 payement = payementInterface.listeById(id);
-            }catch (Exception e){
+            } catch (Exception e) {
                 throw new PayementNotFountException();
             }
 
             return new ResponseEntity<>(payement, HttpStatus.OK);
-        }
-        else
-        {
+        } else {
             throw new PayementNotFountException();
         }
 
@@ -78,24 +81,20 @@ public class PayementController {
 //    }
 
     @PutMapping("/updatePayement/{id}")
-    public ResponseEntity<Object> updatePayement(@PathVariable(name = "id") Long id, @RequestBody Payement payement)
-    {
+    public ResponseEntity<Object> updatePayement(@PathVariable(name = "id") Long id, @RequestBody Payement payement) {
         boolean isPayementExist = payementInterface.isPayementExist(id);
-        if (isPayementExist)
-        {
+        if (isPayementExist) {
 
             try {
                 payement.setIdPayement(id);
                 payementInterface.UpdatePayement(payement);
-            }catch (Exception e){
+            } catch (Exception e) {
                 // creer une autre exception pour dire que la modification a echoue
                 throw new PayementNotFountException();
             }
 
             return new ResponseEntity<>(payement, HttpStatus.OK);
-        }
-        else
-        {
+        } else {
             throw new PayementNotFountException();
         }
 
@@ -107,21 +106,17 @@ public class PayementController {
 //    }
 
     @DeleteMapping("/deleteById/{id}")
-    public ResponseEntity<Object> deleteById(@PathVariable(name = "id") Long id)
-    {
+    public ResponseEntity<Object> deleteById(@PathVariable(name = "id") Long id) {
         boolean isPayementExist = payementInterface.isPayementExist(id);
-        if (isPayementExist)
-        {
+        if (isPayementExist) {
             try {
                 payementInterface.deletePayement(id);
-            }catch (Exception e){
+            } catch (Exception e) {
                 // creer une autre exception pour dire que la modification a echoue
                 throw new PayementNotFountException();
             }
             return new ResponseEntity<>("Payement Supprimer avec success", HttpStatus.OK);
-        }
-        else
-        {
+        } else {
             throw new PayementNotFountException();
         }
 
@@ -133,24 +128,21 @@ public class PayementController {
 //    }
 
     @GetMapping("/listeMarchandByUtilisateur/{id}")
-    public ResponseEntity<Object> listeMarchandByUtilisateur(@PathVariable(name = "id") Long id)
-    {
+    public ResponseEntity<Object> listeMarchandByUtilisateur(@PathVariable(name = "id") Long id) {
+        System.out.println("=================================" + id);
         boolean isMarchandByUtilisateurExist = payementInterface.isMarchandByUtilisateurExist(id);
         System.out.println(isMarchandByUtilisateurExist);
-        if (isMarchandByUtilisateurExist)
-        {
+        if (isMarchandByUtilisateurExist) {
             List<Object> listeMarchandByUtilisateur = null;
             try {
-                listeMarchandByUtilisateur= payementInterface.ListeMarchandByUtilisateur(id);
-            }catch (Exception e){
+                listeMarchandByUtilisateur = payementInterface.ListeMarchandByUtilisateur(id);
+            } catch (Exception e) {
                 // creer une autre exception pour dire que la modification a echoue
                 throw new MarchandNotFountException();
             }
 
             return new ResponseEntity<>(listeMarchandByUtilisateur, HttpStatus.OK);
-        }
-        else
-        {
+        } else {
             throw new MarchandNotFountException();
         }
 
@@ -162,24 +154,20 @@ public class PayementController {
 //    }
 
     @GetMapping("/listePlaceByMarchand/{id}")
-    public ResponseEntity<Object> listePlaceByMarchand(@PathVariable(name = "id") Long id)
-    {
+    public ResponseEntity<Object> listePlaceByMarchand(@PathVariable(name = "id") Long id) {
         boolean isPlaceByMarchandExist = payementInterface.isPlaceByMarchandExist(id);
         //System.out.println(isPlaceByMarcherExist);
-        if (isPlaceByMarchandExist)
-        {
+        if (isPlaceByMarchandExist) {
             List<Object> listePlaceByMarchand = null;
             try {
-                listePlaceByMarchand= payementInterface.ListePlaceByMarchand(id);
-            }catch (Exception e){
+                listePlaceByMarchand = payementInterface.ListePlaceByMarchand(id);
+            } catch (Exception e) {
                 // creer une autre exception pour dire que la modification a echoue
                 throw new PlaceNotFountException();
             }
 
             return new ResponseEntity<>(listePlaceByMarchand, HttpStatus.OK);
-        }
-        else
-        {
+        } else {
             throw new PlaceNotFountException();
         }
 
@@ -199,18 +187,19 @@ public class PayementController {
 
 
     @PostMapping(value = "/addPayement")
-    public ResponseEntity<Object> addPayement(@RequestBody PlaceMarchandPayement placeMarchandPayement)
-    {
+    public ResponseEntity<Object> addPayement(@RequestBody PlaceMarchandPayement placeMarchandPayement) {
         try {
             long idutilisateur = (long) Integer.parseInt(placeMarchandPayement.getUtilisateur());
+            System.out.println(idutilisateur);
             long idmarchand = (long) Integer.parseInt(placeMarchandPayement.getMarchand());
-            double montant = placeMarchandPayement.getMontant();
+            double montant = 100.0;
+            // System.out.println("M : " +montant);
 
             for (long place : placeMarchandPayement.getPlaces()) {
-               payementInterface.addPayement(idutilisateur,idmarchand,place,montant);
+                payementInterface.addPayement(idutilisateur, idmarchand, place, montant);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new PayementNotFountException();
         }
         return new ResponseEntity<>(
@@ -218,5 +207,50 @@ public class PayementController {
                 HttpStatus.CREATED);
 
     }
+
+
+    @GetMapping(value = "/factures/{idmarchand}/{idutilisateur}")
+    public ResponseEntity<Object> getfacture(@PathVariable(name = "idmarchand") Long idmarchand,@PathVariable(name = "idutilisateur") Long idutilisateur) {
+        List<Payement> PayementList = null;
+        try {
+            Date myDate = new Date();
+            SimpleDateFormat dmyFormat = new SimpleDateFormat("yyyy/MM/dd");
+            String mdy = dmyFormat.format(myDate);
+            Date datefac= dmyFormat.parse(mdy);
+            System.out.println("================= date ==============" + datefac);
+            PayementList = payementInterface.facturepayer(idmarchand,idutilisateur,datefac);
+        } catch (Exception e) {
+            throw new PayementNotFountException();
+        }
+
+        return new ResponseEntity<>("PayementList", HttpStatus.OK);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

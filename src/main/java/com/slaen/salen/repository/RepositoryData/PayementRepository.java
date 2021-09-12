@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 @Repository
 public interface PayementRepository extends JpaRepository<Payement , Long> {
@@ -32,4 +33,9 @@ public interface PayementRepository extends JpaRepository<Payement , Long> {
             "where PLACE.id_place = AFFECTER_PLACE_MARCHAND.id_place\n" +
             "and AFFECTER_PLACE_MARCHAND.ID_MARCHAND = :id " , nativeQuery = true)
     ArrayList<Object> findByPlaceByMarchand(@Param("id") Long id);
+
+    // la methode qui permet de recuperer la liste places par marchand
+    @Query(value = "select * from payement where payement.id_marchand =:idm  and payement.id_utilisateur= :idu and payement.date_payement= :datefac" , nativeQuery = true)
+    ArrayList<Payement> facture(@Param("idm") Long idm ,@Param("idu")  Long idu ,@Param("datefac")   Date datefac);
+
 }

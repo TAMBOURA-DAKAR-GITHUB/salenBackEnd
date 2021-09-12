@@ -97,5 +97,10 @@ public class PayementImp implements PayementInterface {
         return verificationReposotoryPayement.isPlaceByMarchandExist(id);
     }
 
+    @Override
+    public List<Payement> facturepayer(long idmarchand, long idutilisateur, Date datefacture) {
+        return payementRepository.facture(idmarchand, idutilisateur ,datefacture);
+    }
+
 
 }

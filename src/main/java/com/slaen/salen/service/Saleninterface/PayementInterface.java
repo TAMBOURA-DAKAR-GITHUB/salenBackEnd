@@ -5,6 +5,7 @@ package com.slaen.salen.service.Saleninterface;
 import com.slaen.salen.model.Payement;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public interface PayementInterface {
@@ -30,6 +31,9 @@ public interface PayementInterface {
 
     public abstract boolean isMarchandByUtilisateurExist(Long id);
     public abstract boolean isPlaceByMarchandExist(Long id);
+
+    // la methode pour recuperer la facture en fonction de la date , iduser , idmarchand
+    public  List<Payement> facturepayer(long idmarchand , long idutilisateur , Date datefacture);
 
 
 
