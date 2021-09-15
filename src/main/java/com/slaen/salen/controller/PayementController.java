@@ -196,7 +196,7 @@ public class PayementController {
             // System.out.println("M : " +montant);
 
             for (long place : placeMarchandPayement.getPlaces()) {
-                payementInterface.addPayement(idutilisateur, idmarchand, place, montant);
+                payementInterface.addPayement(idmarchand,idutilisateur, place, montant);
             }
 
         } catch (Exception e) {
@@ -217,13 +217,12 @@ public class PayementController {
             SimpleDateFormat dmyFormat = new SimpleDateFormat("yyyy/MM/dd");
             String mdy = dmyFormat.format(myDate);
             Date datefac= dmyFormat.parse(mdy);
-            System.out.println("================= date ==============" + datefac);
             PayementList = payementInterface.facturepayer(idmarchand,idutilisateur,datefac);
         } catch (Exception e) {
             throw new PayementNotFountException();
         }
 
-        return new ResponseEntity<>("PayementList", HttpStatus.OK);
+        return new ResponseEntity<>(PayementList, HttpStatus.OK);
 }
 
 
