@@ -41,7 +41,9 @@ public class SalenApplication implements CommandLineRunner {
 
 	public SalenApplication(RegionRepository regionRepository, CercleRepository cercleRepository,
 							RepositoryRestConfiguration repositoryRestConfiguration, CommuneRepository communeRepository,
-							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository, UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface, MarchandInterface marchandInterface, PayementInterface payementInterface, UserRepository userRepository, RoleRepository roleRepository, AddRoleToUserService addRoleToUserService) {
+							MairieRepository mairieRepository, PlaceRepository placeRepository, UtilisateurRepository utilisateurRepository, MarcherRepository marcherRepository,
+							UtilisateurInterface utilisateurInterface, AffecterPlaceUtilisateurInterface utilisateurInterface1, AffecterPlaceMarchandInterface affecterPlaceMarchandInterface,
+							MarchandInterface marchandInterface, PayementInterface payementInterface, UserRepository userRepository, RoleRepository roleRepository, AddRoleToUserService addRoleToUserService) {
 		this.regionRepository = regionRepository;
 		this.cercleRepository = cercleRepository;
 		this.repositoryRestConfiguration = repositoryRestConfiguration;

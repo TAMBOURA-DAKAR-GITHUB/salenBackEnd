@@ -17,7 +17,7 @@ public class Marcher implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idMairie")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Mairie mairie;
 
     @OneToMany(mappedBy = "marcher")
@@ -28,6 +28,7 @@ public class Marcher implements Serializable {
     private  Collection<Marchand> marchands;
 
     public Marcher() {
+
     }
 
     public Marcher(String libelleMarcher, Mairie mairie) {

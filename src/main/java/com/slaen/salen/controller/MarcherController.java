@@ -95,7 +95,7 @@ public class MarcherController {
 //    }
 
 
-    @PutMapping("/updateMarhand/{id}")
+    @PutMapping("/updateMarher/{id}")
     public ResponseEntity<Object> updateMarcher(@PathVariable(name = "id") Long id ,@RequestBody Marcher marcher)
     {
         boolean isMarcherExist = marcherInterface.isMarcherExist(id);
